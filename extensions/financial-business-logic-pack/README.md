@@ -1,47 +1,21 @@
 # Extension Pack: Financial Business Logic
 
-> Adds financial calculation guardrails, audit trail requirements, and compliance-ready documentation templates.
+> Adds financial calculation guardrails, audit trail requirements, currency representation models, and compliance-ready documentation templates.
+
+This is a fully implemented extension pack, supplementing the core factory templates.
 
 ---
 
-## When to Use This Pack
+## Purpose and Scope
 
-Use this extension pack when your product:
+This pack **supplements** the core factory documents; it does **not** replace them. It is designed for software products that handle money, payments, currencies, pricing, quantities, units, settlements, invoices, commissions, financial reports, approval workflows, or audit trails.
 
-- Handles **monetary values** (prices, balances, transactions, invoices)
-- Performs **financial calculations** (tax, discounts, interest, amortization)
-- Requires **audit trails** for financial transactions
-- Must comply with **accounting standards** or financial regulations
-- Needs **precision guarantees** (no floating-point errors in money)
+It is useful for building SaaS billing systems, invoicing applications, ERP modules, trading and operations platforms, marketplaces, finance dashboards, and business workflow software.
 
----
+This pack is strictly template-based and generic. It does not contain product-specific details, private business information, real credentials, real project IDs, real contracts, or real migrations.
 
-## What This Pack Will Add (When Built)
-
-### Additional Documents
-
-| Document | Purpose |
-|----------|---------|
-| `financial-calculations-spec.md` | Exact formulas, rounding rules, precision requirements |
-| `audit-trail-spec.md` | What events to log, retention policies, immutability rules |
-| `currency-handling-guide.md` | Multi-currency support, exchange rates, conversion rules |
-| `financial-reporting-spec.md` | Report formats, period handling, reconciliation rules |
-| `compliance-checklist.md` | Regulatory requirements checklist per jurisdiction |
-
-### Additional Prompts
-
-| Prompt | Purpose |
-|--------|---------|
-| `financial-logic-agent-prompt.md` | AI agent role specialized in financial calculation implementation and validation |
-
-### Additional Guardrails
-
-- All monetary values must use integer/decimal types (never floating point)
-- All calculations must follow documented formulas exactly
-- Rounding rules must be explicitly defined and consistently applied
-- All financial transactions must produce audit log entries
-- Financial reports must reconcile to the source data
-- No financial calculation may be modified without explicit approval and testing
+> [!WARNING]
+> **NO LEGAL OR FINANCIAL ADVICE**: This extension pack does not provide legal, tax, accounting, investment, or regulated financial advice. All templates and prompts must be audited and approved by the product owner's accounting, legal, and tax professionals before deployment.
 
 ---
 
@@ -49,32 +23,48 @@ Use this extension pack when your product:
 
 | Risk | How This Pack Helps |
 |------|-------------------|
-| Floating-point rounding errors in money | Enforces integer/decimal types and explicit rounding |
-| Audit compliance failures | Defines audit trail spec with immutable logging |
-| Incorrect tax or discount calculations | Requires exact formula documentation and validation |
-| Financial data tampering | Audit trail and data integrity rules |
-| Regulatory non-compliance | Compliance checklist per jurisdiction |
+| **Incorrect Money Calculations** | Enforces exact calculation formulas and decimal precision boundaries. |
+| **Floating Point Errors** | Bans binary floating point representation (`float`/`double`) for monetary data. |
+| **Inconsistent Rounding** | Mandates explicit rounding modes and documents exact rounding timing. |
+| **Currency Conversion Mistakes** | Establishes ISO 4217 currency tracking and rate timestamping rules. |
+| **Unit Conversion Mistakes** | Outlines base unit storage and explicit unit conversion validation checklists. |
+| **Payment/Settlement State Mistakes** | Defines explicit lifecycle states, separating payments from final settlements. |
+| **Editing Financial Records Without Audit** | Restricts records modification and mandates actor/timestamp/reason logging. |
+| **Changing Quantities Without Approval** | Requires trace history and human owner approval for quantity/price adjustments. |
+| **Report/Export Mismatch** | Imposes reconciliation validation checklists between UI totals and database logs. |
+| **Hidden Business Logic in UI** | Mandates core logic placement in isolated backend functions, not frontend views. |
 
 ---
 
-## Example Project Types
+## Pack Components
 
-- Invoicing and billing systems
-- Accounting software
-- Point-of-sale (POS) systems
-- Loan management platforms
-- Payroll systems
-- Financial dashboards and reporting tools
-- Insurance claim processing
+### Documentation Guidelines (`docs/`)
+
+- [Financial Domain Model Guidelines](docs/financial-domain-model-guidelines.md) — Core principles of financial modeling, lifecycles, and adjustment patterns.
+- [Money and Currency Guidelines](docs/money-currency-guidelines.md) — Numeric storage standards, ISO currency formats, and exchange rate rules.
+- [Calculation and Rounding Guidelines](docs/calculation-and-rounding-guidelines.md) — Calculation formulas ownership, rounding modes, and overrides tracking.
+- [Payment and Settlement Guidelines](docs/payment-settlement-guidelines.md) — Payment versus settlement state-tracking, refunds, and allocation policies.
+- [Audit Trail and Approval Guidelines](docs/audit-trail-and-approval-guidelines.md) — Immutable logging patterns, edit history tracking, and approval workflows.
+- [Units and Quantity Guidelines](docs/units-and-quantity-guidelines.md) — Base unit constraints, measurement definitions, and expected vs. actual quantity.
+- [Financial Reporting QA Checklist](docs/financial-reporting-qa-checklist.md) — Standard test matrices, edge-cases coverage, and reporting validation checklist.
+
+### AI Agent Role Prompts (`prompts/`)
+
+- [Financial Domain Architect](prompts/financial-domain-architect-prompt.md) — Role for auditing and structuring domain models before implementation.
+- [Calculation Review Agent](prompts/calculation-review-agent-prompt.md) — Role for verifying formulas, precision, rounding, and report calculations.
+- [Payment and Settlement Review Agent](prompts/payment-settlement-review-agent-prompt.md) — Role for reviewing transactional lifecycles, balance allocations, and reconciliation.
+- [Financial QA Agent](prompts/financial-qa-agent-prompt.md) — Role for executing automated and manual checklists prior to release.
 
 ---
 
-## Status
+## Recommended Usage
 
-> **Status: Placeholder / Planned Future Pack**
->
-> This extension pack is currently a **placeholder**. The folder contains only this README. Full templates, prompts, and instructions will be added in a future version.
->
-> **Core Governance Rule:** Extension packs are optional and exist to **supplement** core documents for specific product needs — they do **not** replace core documents.
->
-> For workspace setup instructions and core rules, link back to [START_HERE.md](../../START_HERE.md).
+Follow these steps to integrate this extension pack into your product project:
+
+1. **Initialize Core Kit First**: Copy the core factory documents (`core/docs/`) and prompt templates (`core/prompts/`) into your product project workspace.
+2. **Apply Financial Pack**: Copy this pack's folders (`docs/` and `prompts/`) into your project *only* if financial or business logic (money, billing, quantities) is part of the product.
+3. **Add to Product Documentation**: Merge the relevant files from `docs/` into your active product documentation.
+4. **Use Prompts in Dev & QA Cycles**: Assign specialized prompts to your AI agents to guide architectural design, calculation reviews, and QA validations before code merge.
+5. **Enforce Governance Gatekeeping**: Never approve financial calculations, payment flow states, quantity changes, or settlement rules without explicit human owner review and sign-off.
+
+For workspace setup instructions and core governance rules, link back to [START_HERE.md](../../START_HERE.md).
