@@ -1,48 +1,21 @@
 # Extension Pack: SaaS Multi-Tenant
 
-> Adds multi-tenancy architecture patterns, tenant isolation, subscription management, and onboarding documentation.
+> Adds multi-tenancy architecture patterns, tenant isolation, membership management, roles and permissions, subscription/billing boundary guidelines, checklists, and role prompts.
+
+This is a fully implemented extension pack, supplementing the core factory templates.
 
 ---
 
-## When to Use This Pack
+## Purpose and Scope
 
-Use this extension pack when your product:
+This pack **supplements** the core factory documents; it does **not** replace them. It is designed for software products that include SaaS organizations, tenants, workspaces, team memberships, role-based access, subscription plans, feature limits, billing boundaries, seat management, tenant switching, tenant-scoped data, or multi-organization users.
 
-- Serves **multiple organizations or tenants** from a single codebase
-- Requires **data isolation** between tenants (each tenant sees only their data)
-- Has **subscription/billing** tiers with different feature sets
-- Needs **tenant onboarding** (signup, provisioning, configuration)
-- Requires **tenant administration** (tenant-level settings, user management)
+It is useful for building B2B SaaS products, internal business platforms, agency/client portals, team collaboration tools, subscription products, dashboards, and admin panels.
 
----
+This pack is strictly template-based and generic. It does not include product-specific or private business information. It does not include real customer data, tenant data, payment data, credentials, project IDs, subscription IDs, invoice data, bank data, tax IDs, or company-specific SaaS records.
 
-## What This Pack Will Add (When Built)
-
-### Additional Documents
-
-| Document | Purpose |
-|----------|---------|
-| `multi-tenant-architecture.md` | Tenant isolation strategy (shared DB vs. schema vs. DB per tenant) |
-| `tenant-data-model.md` | Tenant entity, tenant-user relationships, scoping patterns |
-| `subscription-tiers-spec.md` | Feature gates, usage limits, plan definitions |
-| `tenant-onboarding-flow.md` | Signup, provisioning, initial setup, welcome flow |
-| `tenant-admin-spec.md` | Tenant-level settings, branding, user management |
-| `tenant-isolation-checklist.md` | Verification that no data leaks between tenants |
-
-### Additional Prompts
-
-| Prompt | Purpose |
-|--------|---------|
-| `saas-architect-prompt.md` | AI agent role for designing and implementing multi-tenant patterns |
-
-### Additional Guardrails
-
-- Every database query must include tenant scoping
-- Tenant ID must be derived from session, never from user input
-- Cross-tenant data access must be impossible (even for internal tools without explicit design)
-- Subscription tier checks must happen server-side
-- Tenant deletion must handle all related data (cascade or archive)
-- Feature flags must be tied to subscription tier
+> [!WARNING]
+> **NO LEGAL, TAX, ACCOUNTING, OR REGULATED COMPLIANCE ADVICE**: This extension pack does not provide legal, tax, accounting, payment compliance (PCI-DSS), privacy compliance (GDPR/CCPA/HIPAA), or regulated SaaS advice. All templates, guidelines, and prompts must be audited and approved by the product owner's security, legal, financial, and tax professionals before deployment.
 
 ---
 
@@ -50,30 +23,49 @@ Use this extension pack when your product:
 
 | Risk | How This Pack Helps |
 |------|-------------------|
-| Data leaks between tenants | Tenant isolation checklist and query-level scoping |
-| Wrong tenant sees wrong data | Tenant ID from session, never user input |
-| Feature access without subscription | Server-side tier checking |
-| Tenant onboarding is broken | Onboarding flow spec with all edge cases |
-| Orphaned data after tenant deletion | Cascade/archive rules |
+| **Tenant Data Leakage** | Mandates database-level and query-level isolation scoping, blocking cross-tenant visibility. |
+| **Incorrect Organization/Member Scoping** | Enforces clear separation between user accounts and tenant memberships. |
+| **Role/Permission Boundary Mistakes** | Details server-side authorization enforcement and separation of authentication from authorization. |
+| **Plan Gating Mistakes** | Enforces server-side feature access checks and trial/expiration rules. |
+| **Subscription State Confusion** | Standardizes handling of active, past_due, cancelled, and expired states. |
+| **Billing vs. Permission Coupling** | Separates financial status flags from access control checks to avoid silent logic overrides. |
+| **Seat/Usage Limit Mistakes** | Defines explicit checks for user counts and resource usage quotas. |
+| **Tenant Switching Bugs** | Sets requirements for resetting cached states and active context in UI and API layers. |
+| **Cross-Tenant Reporting/Export Leaks** | Establishes explicit scoping rules for exports, queues, and background jobs. |
+| **Hidden SaaS Rules in UI Components** | Mandates backend-enforced business rule engines rather than client-side hiding. |
 
 ---
 
-## Example Project Types
+## Pack Components
 
-- B2B SaaS platforms (project management, CRM, helpdesk)
-- White-label platforms
-- Managed service dashboards
-- Multi-organization collaboration tools
-- Marketplace platforms with seller accounts
+### Documentation Guidelines (`docs/`)
+
+- [SaaS Domain Model Guidelines](docs/saas-domain-model-guidelines.md) — Core modeling principles, user vs. member, multi-organization membership patterns, tenant-scoped vs. global entities, and lifecycle states.
+- [Tenant Isolation Guidelines](docs/tenant-isolation-guidelines.md) — Principles of tenant isolation, scoping patterns for DB/API/UI, tenant switching, cross-tenant admin controls, and background contexts.
+- [Organization and Membership Guidelines](docs/organization-and-membership-guidelines.md) — Invitation flows, role lifecycles, default organizations, transfer of ownership, and membership audit requirements.
+- [Roles and Permissions Guidelines](docs/roles-and-permissions-guidelines.md) — System vs. tenant roles, feature-level permissions, admin/super-admin boundaries, and server-side authorization rules.
+- [Subscription and Plan Guidelines](docs/subscription-and-plan-guidelines.md) — Gating mechanics, usage and seat limits, trials, grace periods, and mapping provider states to app states.
+- [SaaS Billing Boundary Guidelines](docs/saas-billing-boundary-guidelines.md) — Decoupled billing boundaries, customer/subscription IDs handling, webhook idempotency, and failed payment policies.
+- [SaaS QA Checklist](docs/saas-qa-checklist.md) — Comprehensive pre-release QA matrix covering multitenancy, memberships, plans, billing boundaries, and regressions.
+
+### AI Agent Role Prompts (`prompts/`)
+
+- [SaaS Domain Architect](prompts/saas-domain-architect-prompt.md) — Role for designing and reviewing SaaS/multi-tenant domain structures, memberships, and entities.
+- [Tenant Isolation Review Agent](prompts/tenant-isolation-review-agent-prompt.md) — Role for auditing scoping, query variables, background job contexts, webhooks, and exports.
+- [SaaS Permissions Review Agent](prompts/saas-permissions-review-agent-prompt.md) — Role for auditing role separation, server-side checks, continuity, and change logs.
+- [Subscription and Plan Review Agent](prompts/subscription-plan-review-agent-prompt.md) — Role for auditing limit gating, grace periods, state mappings, and seat tracking.
+- [SaaS QA Agent](prompts/saas-qa-agent-prompt.md) — Role for executing the pre-release checklists and testing multi-org/tenant scenarios.
 
 ---
 
-## Status
+## Recommended Usage
 
-> **Status: Placeholder / Planned Future Pack**
->
-> This extension pack is currently a **placeholder**. The folder contains only this README. Full templates, prompts, and instructions will be added in a future version.
->
-> **Core Governance Rule:** Extension packs are optional and exist to **supplement** core documents for specific product needs — they do **not** replace core documents.
->
-> For workspace setup instructions and core rules, link back to [START_HERE.md](../../START_HERE.md).
+Follow these steps to integrate this extension pack into your product project:
+
+1. **Initialize Core Kit First**: Copy the core factory documents (`core/docs/`) and prompt templates (`core/prompts/`) into your product project workspace.
+2. **Apply SaaS Multi-Tenant Pack**: Copy this pack's folders (`docs/` and `prompts/`) into your project *only* if SaaS, multi-tenancy, memberships, subscriptions, or plans are part of the product.
+3. **Add to Product Documentation**: Merge the relevant guidelines from `docs/` directly into your active product documentation.
+4. **Use Prompts in Dev & QA Cycles**: Assign specialized prompts to your AI agents to guide domain architect reviews, security isolation audits, and QA validations before code merges.
+5. **Enforce Governance Gatekeeping**: Never approve tenant isolation, permission boundaries, subscription behavior, or billing-adjacent logic changes without explicit human owner approval.
+
+For workspace setup instructions and core governance rules, link back to [START_HERE.md](../../START_HERE.md).
