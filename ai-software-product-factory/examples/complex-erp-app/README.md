@@ -83,15 +83,20 @@ A **Business Operations ERP** (or similar concept) with:
 
 ## Status
 
-`Placeholder` — This example contains only this README. Filled-in documents will be added in a future version.
+> **Status: Placeholder / Planned Future Example**
+>
+> This directory currently contains only this README. Filled-in document templates and prompts demonstrating a complex ERP architecture with multiple modules, workflows, and calculations will be added in a future version.
+>
+> To see a fully completed reference example today, please navigate to the [small-crud-app README](../small-crud-app/README.md).
+> For general workspace setup instructions, refer to [START_HERE.md](../../START_HERE.md).
 
 ---
 
-## How to Use This Example
+## How to Use This Example (Future)
 
-1. Study how the factory handles true enterprise complexity
-2. See how multiple extension packs integrate with core docs
-3. Learn how to phase a large project into manageable batches
-4. Understand how financial and workflow guardrails prevent costly errors
-5. Use the module-by-module approach as a template for your own complex system
-6. Compare with the small and medium examples to see the full spectrum
+1. Study how the factory handles true enterprise complexity.
+2. See how multiple extension packs integrate with core docs.
+3. Learn how to phase a large project into manageable batches.
+4. Understand how financial and workflow guardrails prevent costly errors.
+5. Use the module-by-module approach as a template for your own complex system.
+6. Compare with the small and medium examples to see the full spectrum.

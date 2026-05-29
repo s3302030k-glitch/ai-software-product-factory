@@ -1,6 +1,22 @@
 # Example: Small CRUD App — Invoice Tracker
 
-> A complete reference implementation of the AI Software Product Factory documentation templates filled out for a realistic, simple CRUD product.
+> **Status: Completed & Fully Filled Documentation Reference**
+
+This is a complete reference implementation of the AI Software Product Factory documentation templates filled out for a realistic, simple CRUD product. It is fully completed and intended to be used as a learning and reference tool.
+
+> [!IMPORTANT]
+> **This is a Reference, Not a Mandated Stack:** While this example uses a specific stack (Next.js, PostgreSQL, Supabase Auth), it is purely illustrative. The AI Software Product Factory works with any technology stack chosen in your project's [08-architecture.md](docs/08-architecture.md).
+
+### Quick Navigation to Key Reference Docs
+
+You can view the full [docs/](docs/) folder or open the key files directly:
+- **Product Goals:** [docs/01-product-brief.md](docs/01-product-brief.md)
+- **Prioritized Features:** [docs/03-mvp-scope.md](docs/03-mvp-scope.md)
+- **UI & Layout Spec:** [docs/06-pages-spec.md](docs/06-pages-spec.md)
+- **Entity & Business Rules:** [docs/07-data-model.md](docs/07-data-model.md)
+- **Timeline & Phase Tracking:** [docs/11-development-roadmap.md](docs/11-development-roadmap.md)
+- **Orientation State:** [docs/16-context-snapshot.md](docs/16-context-snapshot.md)
+- **Sample Batch Request:** [docs/17-batch-request-template.md](docs/17-batch-request-template.md)
 
 ---
 

@@ -72,4 +72,10 @@ Use this extension pack when your product:
 
 ## Status
 
-`Placeholder` — This extension pack contains only this README. Full content will be added in a future version.
+> **Status: Placeholder / Planned Future Pack**
+>
+> This extension pack is currently a **placeholder**. The folder contains only this README. Full templates, prompts, and instructions will be added in a future version.
+>
+> **Core Governance Rule:** Extension packs are optional and exist to **supplement** core documents for specific product needs — they do **not** replace core documents.
+>
+> For workspace setup instructions and core rules, link back to [START_HERE.md](../../START_HERE.md).

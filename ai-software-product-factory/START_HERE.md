@@ -192,6 +192,9 @@ Once a batch is approved and merged, you must update the workspace index:
 
 Extension packs are optional sets of templates, rules, and prompts built for specific product needs. They supplement, but do not replace, the core documentation.
 
+> [!NOTE]
+> All extension packs in the `extensions/` directory are currently **placeholders/planned** for a future version. Their README files explain when and how to apply each pack, but do not yet contain filled-in templates or prompts.
+
 Only copy extension templates if your product requires them:
 - **`rtl-i18n-pack`:** For products requiring right-to-left languages or internationalization.
 - **`financial-business-logic-pack`:** For apps involving double-entry ledgers, tax rules, or financial formulas.
@@ -208,8 +211,8 @@ Only copy extension templates if your product requires them:
 
 Examples in the `examples/` directory demonstrate the factory templates in action.
 
-- **[examples/small-crud-app/README.md](examples/small-crud-app/README.md) (Invoice Tracker):** A complete reference demonstrating clients, invoices, payments, roles, roadmap, and a sample batch request. Use this to understand how to fill out your documents for simple products.
-- **`medium-saas-app` / `complex-erp-app`:** Placeholder templates demonstrating how core docs scale to support larger architectures.
+- **[examples/small-crud-app/README.md](examples/small-crud-app/README.md) (Invoice Tracker):** **Completed & fully filled documentation reference**. A complete reference demonstrating clients, invoices, payments, roles, roadmap, and a sample batch request. Use this to understand how to fill out your documents for simple products.
+- **`medium-saas-app` / `complex-erp-app`:** **Placeholder templates (planned/future)** demonstrating how core docs scale to support larger architectures.
 - **Reference, don't Copy:** Use examples to learn how to detail your specs, but do not copy their architecture or data structures unless they fit your goals.
 
 ---

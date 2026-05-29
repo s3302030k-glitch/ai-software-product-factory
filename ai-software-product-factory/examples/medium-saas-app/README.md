@@ -66,14 +66,19 @@ A **Project Management SaaS** (or similar concept) with:
 
 ## Status
 
-`Placeholder` — This example contains only this README. Filled-in documents will be added in a future version.
+> **Status: Placeholder / Planned Future Example**
+>
+> This directory currently contains only this README. Filled-in document templates and prompts demonstrating a medium-complexity SaaS architecture will be added in a future version.
+>
+> To see a fully completed reference example today, please navigate to the [small-crud-app README](../small-crud-app/README.md).
+> For general workspace setup instructions, refer to [START_HERE.md](../../START_HERE.md).
 
 ---
 
-## How to Use This Example
+## How to Use This Example (Future)
 
-1. Read through the filled-in documents to see how templates handle medium complexity
-2. Study how multi-tenancy affects every document (data model, security, API design)
-3. See how extension packs supplement core docs
-4. Use the batch structure as a reference for planning your own SaaS roadmap
-5. Compare with the small and complex examples to understand documentation scaling
+1. Read through the filled-in documents to see how templates handle medium complexity.
+2. Study how multi-tenancy affects every document (data model, security, API design).
+3. See how extension packs supplement core docs.
+4. Use the batch structure as a reference for planning your own SaaS roadmap.
+5. Compare with the small and complex examples to understand documentation scaling.

@@ -6,6 +6,49 @@ New here? Start with [START_HERE.md](START_HERE.md).
 
 ---
 
+## What to Read First
+
+To familiarize yourself with the governance, rules, and workspace setup:
+
+1. **[START_HERE.md](START_HERE.md):** The primary user guide and workspace setup tutorial.
+2. **[00-document-priority.md](core/docs/00-document-priority.md):** The governance document defining document authority.
+3. **[15-ai-agent-operating-rules.md](core/docs/15-ai-agent-operating-rules.md):** Strict behavior constraints and stop conditions for AI agents.
+4. **[01-product-brief.md](core/docs/01-product-brief.md):** The template for high-level product definitions.
+
+---
+
+## Recommended First Steps
+
+If you are new to the AI Software Product Factory:
+
+1. **Read the Guide:** Open [START_HERE.md](START_HERE.md) to understand the operating rules and start paths.
+2. **Review the Completed Example:** Read the [small-crud-app README](examples/small-crud-app/README.md) to see a fully populated Invoice Tracker.
+3. **Draft your Product Brief:** Create your workspace, copy the template folders, and edit `docs/01-product-brief.md`.
+
+---
+
+## Workspace Components Explained
+
+The factory is organized into four main areas:
+
+- **Core Documentation Templates (`core/docs/`):** Standardized, blank templates (e.g., MVP scope, data model, security) that form your project's source of truth. Copy these into your workspace and edit.
+- **Core Role Prompts (`core/prompts/`):** Role-specific prompts that configure general AI models into dedicated team roles (e.g., Product Manager, Developer, QA).
+- **Examples (`examples/`):** Reference implementations demonstrating how to scale and fill in templates for different product sizes.
+- **Extension Packs (`extensions/`):** Optional, domain-specific add-ons (e.g., Supabase RLS, multi-tenant billing) that supplement the core documentation.
+
+---
+
+## Current Status of Examples and Extensions
+
+To guide your reference, here is the implementation status of folders in this repository:
+
+- **[examples/small-crud-app](examples/small-crud-app/README.md) (Invoice Tracker):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and a mock batch sequence.
+- **[examples/medium-saas-app](examples/medium-saas-app/README.md):** **Placeholder / Planned**. Will demonstrate multi-tenant SaaS architectures in a future update.
+- **[examples/complex-erp-app](examples/complex-erp-app/README.md):** **Placeholder / Planned**. Will demonstrate complex ERP, workflows, and cross-module synchronization.
+- **Extension Packs (`extensions/*`):** **Placeholders / Planned**. The folders contain initial README files explaining when and how to apply each pack, but full documents/prompts will be added in future versions.
+
+---
+
 ## What Is This?
 
 The **AI Software Product Factory** is a structured template that lets you build software products by orchestrating AI agents into specialized roles — Product Manager, Architect, Developer, QA, and more. Instead of a single prompt or ad-hoc conversations, this system provides a complete document-driven workflow that mirrors how real product teams operate.
