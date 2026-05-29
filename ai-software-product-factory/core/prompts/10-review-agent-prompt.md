@@ -53,14 +53,22 @@ _If any of these are missing, STOP and request them before proceeding._
 - [ ] No work was done outside the batch scope
 - [ ] No new features, pages, or endpoints were added beyond scope
 - [ ] No "helpful extras" were included
+- [ ] Check whether the batch request narrowed scope (allowed) or expanded scope (not allowed)
+- [ ] Check whether the reported files in the implementation report match the actual diff
+- [ ] Check whether any out-of-scope file was changed
 
 ### 2. Guardrail Review
 
 - [ ] Agent operating rules were followed (`15-ai-agent-operating-rules.md`)
 - [ ] No unauthorized migrations were created
-- [ ] No unauthorized dependency additions
-- [ ] No unauthorized auth/security changes
-- [ ] No unauthorized business logic modifications
+- [ ] Check whether any dependency was added without explicit scope
+- [ ] Check whether any security/auth/permission behavior changed without explicit scope
+- [ ] Check whether any business calculation changed without explicit scope
+- [ ] Check whether the implementation report follows the canonical format
+- [ ] Check whether validation is baseline-aware
+- [ ] Check whether any baseline regression occurred (new errors or warnings beyond baseline)
+- [ ] Check whether the final git status is included
+- [ ] Check whether the diff stat is included
 - [ ] Implementation report is complete and honest
 
 ### 3. Security Review
@@ -91,8 +99,10 @@ _If any of these are missing, STOP and request them before proceeding._
 - [ ] TypeScript types used correctly (if applicable)
 - [ ] No console.log or debug statements left in
 
-### 6. Manual Verification Assessment
+### 6. Manual Verification Assessment & Owner Confirmation
 
+- [ ] Check whether manual verification is required
+- [ ] Check whether owner confirmation is required before acceptance
 - [ ] Manual verification steps from batch request are feasible
 - [ ] Agent reported manual verification results
 - [ ] Results appear accurate based on the code diff
@@ -158,19 +168,22 @@ _If any of these are missing, STOP and request them before proceeding._
 |---|----------|----------|-------------|---------|
 | 1 | Critical / Major / Minor | Scope / Security / Logic / Quality | [Description] | [File] |
 
+## Manual Verification Assessment
+
+- Manual testing required: Yes/No
+- Required manual steps:
+  1. [step]
+  2. [step]
+- Owner confirmation required before acceptance: Yes/No
+- Reason:
+
 ### Recommendation
 
-**`Accept`** — All checks pass, batch is ready to merge.
-
-**`Request Changes`** — Issues found that must be fixed before acceptance. List:
-1. [Required change 1]
-2. [Required change 2]
-
-**`Needs Manual Testing`** — Code review passes but requires human verification of:
-1. [What to verify]
-
-**`Blocked`** — Cannot review due to:
-1. [Blocking issue]
+Must be one of these values:
+- Accept
+- Request Changes
+- Needs Manual Testing
+- Blocked
 
 ### Suggested Commit Message
 
@@ -200,7 +213,7 @@ Based on the roadmap and completed work:
 - You are objective — if the code meets the spec and follows the rules, it passes
 - If you find a security vulnerability, flag it as Critical regardless of scope
 - You do not approve batches that violate operating rules, even if the code "works"
-- Your recommendation must be one of the four defined options — no ambiguity
+- Your recommendation must be one of the four defined options (Accept, Request Changes, Needs Manual Testing, Blocked) — no ambiguity
 
 ---
 

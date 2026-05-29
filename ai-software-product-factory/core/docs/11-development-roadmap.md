@@ -76,7 +76,7 @@ _Copy this template for each phase._
 #### Phase Completion Criteria
 
 - [ ] All batches are `Complete`
-- [ ] All validation commands pass
+- [ ] All validation commands satisfy baseline-aware rules (no new errors, and no new warnings beyond baseline)
 - [ ] No open critical/blocking issues
 - [ ] Phase reviewed by human product owner
 
@@ -131,13 +131,13 @@ _What is explicitly NOT included:_
 #### Completion Criteria
 
 - [ ] All scope items implemented
-- [ ] All validation commands pass
+- [ ] All validation commands satisfy baseline-aware rules (no new errors; no new warnings beyond baseline; baseline must not worsen unless explicitly approved)
 - [ ] No regressions in existing functionality
 - [ ] Implementation report submitted
 
 ---
 
-## Validation Commands
+## Validation Rules & Commands
 
 _Standard validation commands to run after any batch._
 
@@ -158,43 +158,93 @@ _Standard validation commands to run after any batch._
 [e.g., npm audit]
 ```
 
+### Baseline-Aware Validation Expectations
+
+For new projects:
+- zero errors are required
+- zero warnings are preferred
+
+For existing projects:
+- no new errors are allowed
+- no new warnings beyond the documented baseline are allowed
+- existing baseline warnings/errors must be reported separately
+- a batch must not worsen the baseline unless explicitly approved
+
+If a project has a known validation baseline, the agent must report:
+- the existing baseline
+- whether this batch introduced new errors
+- whether this batch introduced new warnings
+- whether the baseline worsened
+
 ---
 
 ## Report Format
 
-_After each batch, the Coding Agent must submit a report in this format._
+_After each batch, the Coding Agent must submit a report in the canonical implementation report format defined in `15-ai-agent-operating-rules.md`:_
 
 ```markdown
-## Batch Report: [Batch ID]
+# Implementation Report: [Batch ID]
 
-### Commands Run
-- [command]: [result]
+## 1. Commands Run
 
-### Files Changed
-- [file path]: [what changed]
+| Command | Purpose | Result |
+|---|---|---|
+| `[command]` | [purpose] | passed/failed/not available |
 
-### Changes Made
-1. [Description of change]
-2. [Description of change]
+## 2. Files Changed
 
-### Guardrails Followed
-- [ ] Did not expand scope
-- [ ] Did not modify auth/security
-- [ ] Did not modify business calculations
-- [ ] Did not create migrations (unless requested)
+| File | Change Type | Summary |
+|---|---|---|
+| `[path]` | Added/Modified/Removed | [summary] |
 
-### Validation Results
-- [command]: PASS / FAIL
-- [manual check]: PASS / FAIL
+## 3. Changes Made
 
-### Risks / Concerns
-- [Any issues or risks identified]
+- [change 1]
+- [change 2]
 
-### Final Status
-`Complete` | `Blocked` | `Needs Review`
+## 4. Guardrails Confirmed
 
-### Git Status
-[Output of git status and git diff --stat]
+- Scope stayed within the approved batch.
+- No out-of-scope features were added.
+- No migrations were added unless explicitly scoped.
+- No auth/security/permission rules were changed unless explicitly scoped.
+- No business calculations were changed unless explicitly scoped.
+- No unrelated UI behavior changed.
+- No dependencies were added unless explicitly scoped.
+- No broad architecture changes were made unless explicitly scoped.
+
+## 5. Validation Results
+
+| Check | Result | Notes |
+|---|---|---|
+| Build | passed/failed/not available | [notes] |
+| Typecheck | passed/failed/not available | [notes] |
+| Lint | passed/failed/not available | [notes] |
+| Tests | passed/failed/not available | [notes] |
+| Diff check | passed/failed/not available | [notes] |
+| Manual verification | passed/failed/not performed/not required | [notes] |
+
+## 6. Baseline Notes
+
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
+
+## 7. Risks / Follow-Ups
+
+- [risk or follow-up]
+
+## 8. Final Status
+
+Ready for review / Blocked / Needs owner decision / Needs manual verification
+
+## 9. Final Git Status
+
+TEXT BLOCK:
+[git status --short]
+[git diff --stat]
 ```
 
 ---

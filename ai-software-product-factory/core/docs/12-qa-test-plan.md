@@ -54,15 +54,35 @@ _Standard automated checks to run after every batch._
 [e.g., npx audit-ci --moderate]
 ```
 
-### All Checks Must Pass
+### Baseline-Aware Validation Criteria
 
-| Check | Required | Blocking |
-|-------|----------|----------|
-| Build succeeds | Yes | Yes |
-| Type check passes | Yes | Yes |
-| Lint passes | Yes | Yes — no warnings ignored |
-| Unit tests pass | Yes | Yes |
-| Security audit | Yes | Only critical/high |
+All checks must satisfy baseline-aware rules:
+
+| Check | Required | Blocking | Notes |
+|-------|----------|----------|-------|
+| Build succeeds | Yes | Yes | |
+| Type check passes | Yes | Yes | No new errors allowed |
+| Lint passes | Yes | Yes | No new warnings/errors beyond baseline |
+| Unit tests pass | Yes | Yes | |
+| Security audit | Yes | Only critical/high | |
+
+#### Baseline-Aware Validation Expectations
+
+For new projects:
+- zero errors are required
+- zero warnings are preferred
+
+For existing projects:
+- no new errors are allowed
+- no new warnings beyond the documented baseline are allowed
+- existing baseline warnings/errors must be reported separately
+- a batch must not worsen the baseline unless explicitly approved
+
+If a project has a known validation baseline, the agent must report:
+- the existing baseline
+- whether this batch introduced new errors
+- whether this batch introduced new warnings
+- whether the baseline worsened
 
 ---
 
@@ -143,6 +163,56 @@ _After any change, verify that previously working features still work._
 - [ ] Page load times have not degraded
 - [ ] No new console errors
 - [ ] No memory leaks in long-running pages
+
+---
+
+## QA Report Format
+
+_Every QA validation run must produce a report in this exact format:_
+
+```markdown
+# QA Report: [Batch ID or Release ID]
+
+## 1. Scope Tested
+
+- [scope]
+
+## 2. Commands / Checks Run
+
+| Check | Result | Notes |
+|---|---|---|
+| [check] | passed/failed/not available | [notes] |
+
+## 3. Manual Tests
+
+| Test | Result | Notes |
+|---|---|---|
+| [test] | passed/failed/not performed/not required | [notes] |
+
+## 4. Regression Checks
+
+| Area | Result | Notes |
+|---|---|---|
+| [area] | passed/failed/not performed/not required | [notes] |
+
+## 5. Baseline Notes
+
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
+
+## 6. Bugs Found
+
+| Severity | Issue | Evidence | Recommendation |
+|---|---|---|---|
+| Critical/Major/Minor/Nit | [issue] | [evidence] | [recommendation] |
+
+## 7. Recommendation
+
+Pass / Pass with notes / Needs fixes / Blocked
+```
 
 ---
 
@@ -228,7 +298,7 @@ BUG-XXX
 
 ## Guardrails
 
-- [ ] All validation commands must pass before a batch is considered complete
+- [ ] All validation commands satisfy baseline-aware rules (no new errors, and no new warnings beyond baseline) before a batch is considered complete
 - [ ] Critical and major bugs block release
 - [ ] QA checklist must be completed for every UI-touching batch
 - [ ] Regression checklist must be run before every release

@@ -26,14 +26,21 @@ Establish clear, enforceable boundaries for AI agent behavior. These rules preve
 
 _Every AI agent session must begin by reading these documents in order:_
 
-1. `16-context-snapshot.md` — Current project state and orientation
-2. `15-ai-agent-operating-rules.md` — This document (rules and constraints)
-3. `01-product-brief.md` — What the product is
-4. `03-mvp-scope.md` — What is in and out of scope
-5. The specific batch request being worked on (`17-batch-request-template.md`)
-6. Any documents listed in the batch request's "Required Reading" section
+1. `16-context-snapshot.md` — Orientation only (never treated as source of truth/authority)
+2. `00-document-priority.md` — Authority and conflict resolution rules
+3. `15-ai-agent-operating-rules.md` — Mandatory agent behavior constraints (this document)
+4. `01-product-brief.md` — Product context, target users, and goals
+5. `03-mvp-scope.md` — MVP scope boundaries (MoSCoW items)
+6. `11-development-roadmap.md` — Phase, batch sequence, and tracking/dependencies
+7. The specific approved batch request (representing the work order)
+8. Any task-specific documents listed in the batch request's Required Reading section
 
 **If an agent cannot access the required documents, it must stop and report the issue.**
+
+### Clarifications on Reading and Conflict Resolution
+- **Context Snapshot** is for orientation only and has no authority.
+- If any conflict between documents appears during reading or execution, the agent must refer to the standing authority defined in `00-document-priority.md`.
+- If the conflict affects the current batch or task, the agent must **STOP** immediately and report the conflict to the human product owner.
 
 ---
 
@@ -131,10 +138,28 @@ If the batch request is ambiguous or incomplete:
 _After every batch, run ALL of the following:_
 
 1. **Build check** — The project must build without errors
-2. **Type check** — No type errors (if using TypeScript)
-3. **Lint check** — No lint errors or warnings
+2. **Type check** — No new type errors (if using TypeScript)
+3. **Lint check** — No new lint errors or warnings beyond the baseline
 4. **Test check** — All existing tests pass, new tests pass
 5. **Manual verification** — Complete the manual verification steps from the batch request
+
+### Baseline-Aware Validation Expectations
+
+For new projects:
+- zero errors are required
+- zero warnings are preferred
+
+For existing projects:
+- no new errors are allowed
+- no new warnings beyond the documented baseline are allowed
+- existing baseline warnings/errors must be reported separately
+- a batch must not worsen the baseline unless explicitly approved
+
+If a project has a known validation baseline, the agent must report:
+- the existing baseline
+- whether this batch introduced new errors
+- whether this batch introduced new warnings
+- whether the baseline worsened
 
 ### Validation Is Not Optional
 
@@ -149,54 +174,70 @@ _After every batch, run ALL of the following:_
 _Every batch must conclude with a report in this exact format:_
 
 ```markdown
-## Implementation Report: [Batch ID]
+# Implementation Report: [Batch ID]
 
-### Commands Run
-| Command | Result |
-|---------|--------|
-| `[command]` | `PASS` / `FAIL` — [details] |
+## 1. Commands Run
 
-### Files Changed
-| File | Change Type | Description |
-|------|------------|-------------|
-| `[path]` | Created / Modified / Deleted | [What changed] |
+| Command | Purpose | Result |
+|---|---|---|
+| `[command]` | [purpose] | passed/failed/not available |
 
-### Changes Made
-1. [Description of change 1]
-2. [Description of change 2]
-3. [Description of change 3]
+## 2. Files Changed
 
-### Guardrails Compliance
-- [ ] Worked only on approved batch scope
-- [ ] Did not expand scope
-- [ ] Did not modify auth/security/permissions
-- [ ] Did not modify business calculations
-- [ ] Did not create migrations (unless requested)
-- [ ] Did not add new dependencies (unless approved)
-- [ ] Followed architecture patterns
-- [ ] Followed data model specs
+| File | Change Type | Summary |
+|---|---|---|
+| `[path]` | Added/Modified/Removed | [summary] |
 
-### Validation Results
+## 3. Changes Made
+
+- [change 1]
+- [change 2]
+
+## 4. Guardrails Confirmed
+
+- Scope stayed within the approved batch.
+- No out-of-scope features were added.
+- No migrations were added unless explicitly scoped.
+- No auth/security/permission rules were changed unless explicitly scoped.
+- No business calculations were changed unless explicitly scoped.
+- No unrelated UI behavior changed.
+- No dependencies were added unless explicitly scoped.
+- No broad architecture changes were made unless explicitly scoped.
+
+## 5. Validation Results
+
 | Check | Result | Notes |
-|-------|--------|-------|
-| Build | `PASS` / `FAIL` | |
-| Type check | `PASS` / `FAIL` | |
-| Lint | `PASS` / `FAIL` | |
-| Tests | `PASS` / `FAIL` | |
-| Manual verification | `PASS` / `FAIL` | |
+|---|---|---|
+| Build | passed/failed/not available | [notes] |
+| Typecheck | passed/failed/not available | [notes] |
+| Lint | passed/failed/not available | [notes] |
+| Tests | passed/failed/not available | [notes] |
+| Diff check | passed/failed/not available | [notes] |
+| Manual verification | passed/failed/not performed/not required | [notes] |
 
-### Risks & Concerns
-- [Any issues, edge cases, or risks identified during implementation]
+## 6. Baseline Notes
 
-### Final Status
-`Complete` | `Blocked: [reason]` | `Needs Review: [reason]`
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
 
-### Git Status
+## 7. Risks / Follow-Ups
+
+- [risk or follow-up]
+
+## 8. Final Status
+
+Ready for review / Blocked / Needs owner decision / Needs manual verification
+
+## 9. Final Git Status
+
+TEXT BLOCK:
+[git status --short]
+[git diff --stat]
 ```
-[Paste output of git status]
-[Paste output of git diff --stat]
-```
-```
+
 
 ---
 
@@ -232,8 +273,9 @@ When a stop condition is triggered:
 
 ## Scope
 
-- This document defines **mandatory behavioral rules** for all AI agents.
-- It has the third-highest priority in the document hierarchy.
+- This document has the highest authority for AI agent behavior constraints.
+- It overrides conflicting instructions in batch requests or lower-authority docs for agent conduct.
+- Authority and conflict rules are defined in `00-document-priority.md`.
 
 ## Out of Scope
 

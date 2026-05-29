@@ -49,7 +49,7 @@ _Read in this exact order at the start of every session:_
 4. **Follow the data model** in `07-data-model.md`
 5. **Follow the API contracts** in `09-api-design.md`
 6. **Follow the page specs** in `06-pages-spec.md`
-7. **Run all validation commands** after implementation
+7. **Run all validation commands** and verify compliance with baseline-aware rules after implementation
 8. **Submit a complete implementation report** using the required format
 
 ---
@@ -110,52 +110,68 @@ If **anything** is unclear:
 _You MUST submit this report after every batch. No exceptions._
 
 ```markdown
-## Implementation Report: [Batch ID]
+# Implementation Report: [Batch ID]
 
-### Commands Run
-| Command | Result |
-|---------|--------|
-| `[command]` | `PASS` / `FAIL` — [details] |
+## 1. Commands Run
 
-### Files Changed
-| File | Change Type | Description |
-|------|------------|-------------|
-| `[path]` | Created / Modified / Deleted | [What changed] |
+| Command | Purpose | Result |
+|---|---|---|
+| `[command]` | [purpose] | passed/failed/not available |
 
-### Changes Made
-1. [Description of change 1]
-2. [Description of change 2]
+## 2. Files Changed
 
-### Guardrails Compliance
-- [ ] Worked only on approved batch scope
-- [ ] Did not expand scope
-- [ ] Did not modify auth/security/permissions
-- [ ] Did not modify business calculations
-- [ ] Did not create migrations (unless requested)
-- [ ] Did not add new dependencies (unless approved)
-- [ ] Followed architecture patterns
-- [ ] Followed data model specs
+| File | Change Type | Summary |
+|---|---|---|
+| `[path]` | Added/Modified/Removed | [summary] |
 
-### Validation Results
+## 3. Changes Made
+
+- [change 1]
+- [change 2]
+
+## 4. Guardrails Confirmed
+
+- Scope stayed within the approved batch.
+- No out-of-scope features were added.
+- No migrations were added unless explicitly scoped.
+- No auth/security/permission rules were changed unless explicitly scoped.
+- No business calculations were changed unless explicitly scoped.
+- No unrelated UI behavior changed.
+- No dependencies were added unless explicitly scoped.
+- No broad architecture changes were made unless explicitly scoped.
+
+## 5. Validation Results
+
 | Check | Result | Notes |
-|-------|--------|-------|
-| Build | `PASS` / `FAIL` | |
-| Type check | `PASS` / `FAIL` | |
-| Lint | `PASS` / `FAIL` | |
-| Tests | `PASS` / `FAIL` | |
-| Manual verification | `PASS` / `FAIL` | |
+|---|---|---|
+| Build | passed/failed/not available | [notes] |
+| Typecheck | passed/failed/not available | [notes] |
+| Lint | passed/failed/not available | [notes] |
+| Tests | passed/failed/not available | [notes] |
+| Diff check | passed/failed/not available | [notes] |
+| Manual verification | passed/failed/not performed/not required | [notes] |
 
-### Risks & Concerns
-- [Any issues, edge cases, or risks identified]
+## 6. Baseline Notes
 
-### Final Status
-`Complete` | `Blocked: [reason]` | `Needs Review: [reason]`
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
 
-### Git Status
-```
-[git status output]
-[git diff --stat output]
-```
+## 7. Risks / Follow-Ups
+
+- [risk or follow-up]
+
+## 8. Final Status
+
+Ready for review / Blocked / Needs owner decision / Needs manual verification
+
+## 9. Final Git Status
+
+TEXT BLOCK:
+[git status --short]
+[git diff --stat]
 ```
 
 ---
@@ -180,7 +196,7 @@ Your output is:
 4. The requested change could introduce a security vulnerability
 5. The change could corrupt or lose existing data
 6. The batch depends on another batch that is not complete
-7. Build, type check, lint, or tests fail and you cannot fix them within scope
+7. Build, type check, lint, or tests fail (or worsen the baseline without explicit approval) and you cannot fix them within scope
 8. The requested change violates architectural principles
 9. The batch would require changes outside its defined scope
 10. You are unsure about a calculation, formula, or business rule

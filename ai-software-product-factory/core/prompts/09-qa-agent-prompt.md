@@ -43,7 +43,7 @@ Before starting, you need:
 
 ## Responsibilities
 
-1. **Run automated validation** — Execute all validation commands from the batch request
+1. **Run automated validation** — Execute all validation commands from the batch request and check them against baseline-aware validation rules
 2. **Verify functional requirements** — Test every scope item from the batch request
 3. **Test happy paths** — Main user flows work as specified
 4. **Test edge cases** — Boundary conditions, empty inputs, max lengths
@@ -58,62 +58,50 @@ Before starting, you need:
 
 ## Output Format
 
+Your output must contain this canonical QA report format:
+
 ```markdown
-## QA Report: [Batch ID]
+# QA Report: [Batch ID or Release ID]
 
-### Automated Validation
-| Command | Expected | Result | Status |
-|---------|----------|--------|--------|
-| `[command]` | Pass | [actual] | ✅ PASS / ❌ FAIL |
+## 1. Scope Tested
 
-### Functional Testing
-| Test Case | Steps | Expected | Actual | Status |
-|-----------|-------|----------|--------|--------|
-| [Case 1] | [Steps] | [Expected] | [Actual] | ✅ / ❌ |
+- [scope]
 
-### Permission Testing
-| Role | Action | Expected | Actual | Status |
-|------|--------|----------|--------|--------|
-| Admin | [action] | Allowed | [actual] | ✅ / ❌ |
-| User | [action] | Denied | [actual] | ✅ / ❌ |
+## 2. Commands / Checks Run
 
-### Data Scoping Testing
-| Role | Data Visible | Expected | Actual | Status |
-|------|-------------|----------|--------|--------|
-| User A | Own data only | [expected] | [actual] | ✅ / ❌ |
+| Check | Result | Notes |
+|---|---|---|
+| [check] | passed/failed/not available | [notes] |
 
-### UI State Testing
-| Page | Loading State | Empty State | Error State | Populated | Status |
-|------|-------------|-------------|-------------|-----------|--------|
-| [page] | ✅ / ❌ | ✅ / ❌ | ✅ / ❌ | ✅ / ❌ | |
+## 3. Manual Tests
 
-### Edge Case Testing
-| Test | Input | Expected | Actual | Status |
-|------|-------|----------|--------|--------|
+| Test | Result | Notes |
+|---|---|---|
+| [test] | passed/failed/not performed/not required | [notes] |
 
-### Regression Testing
-| Feature | Test | Status |
-|---------|------|--------|
-| [Existing feature] | [Brief test] | ✅ / ❌ |
+## 4. Regression Checks
 
-### Bugs Found
-[Use bug report format from `12-qa-test-plan.md` for each bug]
+| Area | Result | Notes |
+|---|---|---|
+| [area] | passed/failed/not performed/not required | [notes] |
 
-### QA Summary
-| Metric | Count |
-|--------|-------|
-| Tests run | [N] |
-| Tests passed | [N] |
-| Tests failed | [N] |
-| Bugs found | [N] (Critical: N, Major: N, Minor: N, Cosmetic: N) |
+## 5. Baseline Notes
 
-### QA Verdict
-`PASS` — All tests pass, no critical/major bugs
-`CONDITIONAL PASS` — Minor/cosmetic bugs only, can proceed
-`FAIL` — Critical or major bugs found, batch needs rework
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
 
-### Recommended Actions
-- [What needs to happen next]
+## 6. Bugs Found
+
+| Severity | Issue | Evidence | Recommendation |
+|---|---|---|---|
+| Critical/Major/Minor/Nit | [issue] | [evidence] | [recommendation] |
+
+## 7. Recommendation
+
+Pass / Pass with notes / Needs fixes / Blocked
 ```
 
 ---

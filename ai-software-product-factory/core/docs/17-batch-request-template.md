@@ -85,7 +85,7 @@ _Guide the agent to the right files. Not exhaustive — the agent may need other
 
 ---
 
-### Validation Commands
+### Validation Rules & Commands
 
 _Commands the agent must run after implementation to verify correctness._
 
@@ -105,6 +105,24 @@ _Commands the agent must run after implementation to verify correctness._
 # Run specific tests for this batch
 [e.g., npm test -- --grep "users"]
 ```
+
+#### Baseline-Aware Validation Expectations
+
+For new projects:
+- zero errors are required
+- zero warnings are preferred
+
+For existing projects:
+- no new errors are allowed
+- no new warnings beyond the documented baseline are allowed
+- existing baseline warnings/errors must be reported separately
+- a batch must not worsen the baseline unless explicitly approved
+
+If a project has a known validation baseline, the agent must report:
+- the existing baseline
+- whether this batch introduced new errors
+- whether this batch introduced new warnings
+- whether the baseline worsened
 
 ---
 
@@ -140,50 +158,71 @@ This is explicitly approved. Follow the permission matrix in 04-user-roles.md."]
 
 ### Required Report Format
 
-_The agent must submit a report using the format defined in `15-ai-agent-operating-rules.md`:_
+_The agent must submit a report in the canonical implementation report format defined in `15-ai-agent-operating-rules.md`:_
 
 ```markdown
-## Implementation Report: [Batch ID]
+# Implementation Report: [Batch ID]
 
-### Commands Run
-| Command | Result |
-|---------|--------|
-| `[command]` | `PASS` / `FAIL` — [details] |
+## 1. Commands Run
 
-### Files Changed
-| File | Change Type | Description |
-|------|------------|-------------|
-| `[path]` | Created / Modified / Deleted | [What changed] |
+| Command | Purpose | Result |
+|---|---|---|
+| `[command]` | [purpose] | passed/failed/not available |
 
-### Changes Made
-1. [Description]
+## 2. Files Changed
 
-### Guardrails Compliance
-- [ ] Worked only on approved batch scope
-- [ ] Did not expand scope
-- [ ] Did not modify auth/security/permissions (unless explicitly approved above)
-- [ ] Did not modify business calculations (unless explicitly approved above)
-- [ ] Did not create migrations (unless explicitly approved above)
-- [ ] Did not add new dependencies (unless approved)
+| File | Change Type | Summary |
+|---|---|---|
+| `[path]` | Added/Modified/Removed | [summary] |
 
-### Validation Results
+## 3. Changes Made
+
+- [change 1]
+- [change 2]
+
+## 4. Guardrails Confirmed
+
+- Scope stayed within the approved batch.
+- No out-of-scope features were added.
+- No migrations were added unless explicitly scoped.
+- No auth/security/permission rules were changed unless explicitly scoped.
+- No business calculations were changed unless explicitly scoped.
+- No unrelated UI behavior changed.
+- No dependencies were added unless explicitly scoped.
+- No broad architecture changes were made unless explicitly scoped.
+
+## 5. Validation Results
+
 | Check | Result | Notes |
-|-------|--------|-------|
-| Build | `PASS` / `FAIL` | |
-| Type check | `PASS` / `FAIL` | |
-| Lint | `PASS` / `FAIL` | |
-| Tests | `PASS` / `FAIL` | |
-| Manual verification | `PASS` / `FAIL` | |
+|---|---|---|
+| Build | passed/failed/not available | [notes] |
+| Typecheck | passed/failed/not available | [notes] |
+| Lint | passed/failed/not available | [notes] |
+| Tests | passed/failed/not available | [notes] |
+| Diff check | passed/failed/not available | [notes] |
+| Manual verification | passed/failed/not performed/not required | [notes] |
 
-### Risks & Concerns
-- [Any issues identified]
+## 6. Baseline Notes
 
-### Final Status
-`Complete` | `Blocked: [reason]` | `Needs Review: [reason]`
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
 
-### Git Status
-[git status output]
-[git diff --stat output]
+## 7. Risks / Follow-Ups
+
+- [risk or follow-up]
+
+## 8. Final Status
+
+Ready for review / Blocked / Needs owner decision / Needs manual verification
+
+## 9. Final Git Status
+
+TEXT BLOCK:
+[git status --short]
+[git diff --stat]
 ```
 
 ---

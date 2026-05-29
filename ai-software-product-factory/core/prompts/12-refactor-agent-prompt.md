@@ -43,81 +43,99 @@ Before starting, you need:
 1. **Analyze the target code** — Understand what it does and why
 2. **Identify improvements** — Duplication, naming, structure, performance
 3. **Implement refactoring** — Change internal structure without changing behavior
-4. **Preserve all tests** — Existing tests must still pass without modification
-5. **Run full validation** — Build, lint, type check, and all tests
-6. **Document changes** — What was improved and why
+4. **Behavior must not change** — The application must function identically before and after. Any behavior change means you must stop and report immediately
+5. **Baseline must not worsen** — Ensure validation (build, typecheck, lint, test) before and after refactoring are reported when possible
+6. **No new features** — Absolutely no new feature addition is allowed
+7. **No unrelated cleanup** — Restrict edits only to the target refactoring request; do not clean up or format adjacent/unrelated files
+8. **No architecture rewrite** — Do not rewrite or restructure broad codebase architecture unless it is explicitly scoped
+9. **Submit a complete implementation report** using the canonical format
 
 ---
 
 ## Output Format
 
+Your output must be in the canonical implementation report format:
+
 ```markdown
-## Refactor Report: [Refactor ID / Description]
+# Implementation Report: [Batch ID]
 
-### Scope of Refactoring
-[What code was refactored and why]
+## 1. Commands Run
 
-### Changes Made
-| File | Before | After | Improvement |
-|------|--------|-------|-------------|
-| `[path]` | [What it was] | [What it is now] | [Why this is better] |
+| Command | Purpose | Result |
+|---|---|---|
+| `[command]` | [purpose] | passed/failed/not available |
 
-### Refactoring Techniques Applied
-- [ ] Extract function/component
-- [ ] Rename for clarity
-- [ ] Remove duplication (DRY)
-- [ ] Simplify conditionals
-- [ ] Improve type safety
-- [ ] Extract constants
-- [ ] Improve error handling
-- [ ] Performance optimization
-- [ ] Other: [describe]
+## 2. Files Changed
 
-### Behavior Verification
-| Test Suite | Before Refactor | After Refactor | Status |
-|-----------|----------------|----------------|--------|
-| Unit tests | [N] pass | [N] pass | ✅ Same |
-| Integration tests | [N] pass | [N] pass | ✅ Same |
-| Build | PASS | PASS | ✅ Same |
+| File | Change Type | Summary |
+|---|---|---|
+| `[path]` | Added/Modified/Removed | [summary] |
 
-### Validation Results
-| Check | Result |
-|-------|--------|
-| Build | `PASS` / `FAIL` |
-| Type check | `PASS` / `FAIL` |
-| Lint | `PASS` / `FAIL` |
-| Tests | `PASS` / `FAIL` |
+## 3. Changes Made
 
-### Guardrails Compliance
-- [ ] No external behavior changed
-- [ ] All existing tests pass without modification
-- [ ] No features added
-- [ ] No bugs fixed (report them separately)
-- [ ] No auth/security changes
-- [ ] No business logic changes
-- [ ] No data model changes
-- [ ] No API contract changes
+- [change 1]
+- [change 2]
 
-### Risks
-- [Any risks from the refactoring]
+## 4. Guardrails Confirmed
 
-### Final Status
-`Complete` | `Partial: [what remains]` | `Blocked: [reason]`
+- Scope stayed within the approved batch.
+- No out-of-scope features were added.
+- No migrations were added unless explicitly scoped.
+- No auth/security/permission rules were changed unless explicitly scoped.
+- No business calculations were changed unless explicitly scoped.
+- No unrelated UI behavior changed.
+- No dependencies were added unless explicitly scoped.
+- No broad architecture changes were made unless explicitly scoped.
+
+## 5. Validation Results
+
+| Check | Result | Notes |
+|---|---|---|
+| Build | passed/failed/not available | [notes] |
+| Typecheck | passed/failed/not available | [notes] |
+| Lint | passed/failed/not available | [notes] |
+| Tests | passed/failed/not available | [notes] |
+| Diff check | passed/failed/not available | [notes] |
+| Manual verification | passed/failed/not performed/not required | [notes] |
+
+## 6. Baseline Notes
+
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
+
+## 7. Risks / Follow-Ups
+
+- [risk or follow-up]
+
+## 8. Final Status
+
+Ready for review / Blocked / Needs owner decision / Needs manual verification
+
+## 9. Final Git Status
+
+TEXT BLOCK:
+[git status --short]
+[git diff --stat]
 ```
 
 ---
 
 ## Guardrails
 
-- **Zero behavior change** — The application must work identically before and after
+- **Zero behavior change** — The application must work identically before and after. Any behavior change means STOP and report
+- **Baseline must not worsen** — Report validation results before and after refactoring when possible to confirm the baseline did not degrade
 - Do not fix bugs during refactoring — report them separately
 - Do not add features during refactoring
 - Do not change API contracts or response shapes
 - Do not change database schemas or queries (unless the refactor is specifically about query optimization with identical results)
 - Do not change authentication or authorization behavior
 - Do not modify existing tests to make them pass — if a test fails, your refactor changed behavior
-- All existing tests must pass without modification
-- Stay within the refactoring request scope — do not refactor unrelated code
+- All existing tests must pass without modification. Run validation checks before and after to verify that the baseline did not worsen
+- Stay within the refactoring request scope — do not refactor unrelated code, and do not perform unrelated cleanup
+- No architecture rewrite unless explicitly scoped
 
 ---
 
@@ -125,10 +143,10 @@ Before starting, you need:
 
 Stop and report if:
 
-1. The refactoring would change external behavior
-2. Existing tests fail after the refactoring
+1. The refactoring would change external behavior (any behavior change means STOP and report)
+2. Existing tests fail after the refactoring (or validation worsens the baseline)
 3. The code being refactored has no tests and behavior verification is impossible
 4. The refactoring reveals bugs that should be fixed separately
 5. The refactoring scope is too large for one session
-6. The code requires architectural changes beyond simple refactoring
+6. The code requires architectural changes beyond simple refactoring or a broad rewrite is required
 7. The refactoring would affect API contracts or data model

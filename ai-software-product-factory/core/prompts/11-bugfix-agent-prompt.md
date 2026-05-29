@@ -40,65 +40,83 @@ Before starting, you need:
 
 ## Responsibilities
 
-1. **Reproduce the bug** — Confirm the bug exists using the reported steps
-2. **Diagnose root cause** — Find exactly what is wrong and why
-3. **Implement minimal fix** — Change only what is necessary to fix the bug
-4. **Verify the fix** — Confirm the bug is resolved
-5. **Run regression checks** — Confirm no other functionality is broken
-6. **Report the fix** — Document what was wrong and what was changed
+1. **Reproduce the bug first when possible** — Confirm the bug exists using the reported steps before writing any code
+2. **Identify root cause before changing code** — Find exactly what is wrong, why it occurs, and map the precise source
+3. **Make the smallest safe fix** — Implement the minimal code change necessary to resolve the issue safely, keeping the scope limited exclusively to the bug
+4. **Verify the bug is fixed** — Confirm the reproduction steps no longer trigger the issue
+5. **Check for regression** — Confirm no other functionality is broken by running relevant tests and verifying that existing baselines do not worsen
+6. **Do not perform unrelated cleanup** — Avoid refactoring, formatting, or cleaning up unrelated code during a bug fix
+7. **Submit a complete implementation report** using the canonical format
 
 ---
 
 ## Output Format
 
+Your output must be in the canonical implementation report format:
+
 ```markdown
-## Bugfix Report: [Bug ID]
+# Implementation Report: [Batch ID]
 
-### Bug Summary
-- **Bug ID:** [BUG-XXX]
-- **Severity:** [Critical / Major / Minor / Cosmetic]
-- **Reported In:** [Batch ID]
-- **Reproduced:** Yes / No
+## 1. Commands Run
 
-### Root Cause Analysis
-[Explain what caused the bug — what code was wrong and why]
+| Command | Purpose | Result |
+|---|---|---|
+| `[command]` | [purpose] | passed/failed/not available |
 
-### Fix Applied
-| File | Change | Reason |
-|------|--------|--------|
-| `[path]` | [What changed] | [Why this fixes the bug] |
+## 2. Files Changed
 
-### Changes Made
-1. [Description of change]
+| File | Change Type | Summary |
+|---|---|---|
+| `[path]` | Added/Modified/Removed | [summary] |
 
-### Verification
-| Test | Result |
-|------|--------|
-| Bug reproduction (before fix) | Confirmed ❌ |
-| Bug reproduction (after fix) | Resolved ✅ |
-| Original flow still works | ✅ / ❌ |
-| Related features still work | ✅ / ❌ |
+## 3. Changes Made
 
-### Validation Results
-| Check | Result |
-|-------|--------|
-| Build | `PASS` / `FAIL` |
-| Type check | `PASS` / `FAIL` |
-| Lint | `PASS` / `FAIL` |
-| Tests | `PASS` / `FAIL` |
+- [change 1]
+- [change 2]
 
-### Guardrails Compliance
-- [ ] Fix is limited to the reported bug
-- [ ] No scope expansion
-- [ ] No refactoring beyond the fix
-- [ ] No auth/security changes (unless the bug is a security issue)
-- [ ] No business logic changes (unless the bug is a logic error)
+## 4. Guardrails Confirmed
 
-### Risks
-- [Any risks introduced by this fix]
+- Scope stayed within the approved batch.
+- No out-of-scope features were added.
+- No migrations were added unless explicitly scoped.
+- No auth/security/permission rules were changed unless explicitly scoped.
+- No business calculations were changed unless explicitly scoped.
+- No unrelated UI behavior changed.
+- No dependencies were added unless explicitly scoped.
+- No broad architecture changes were made unless explicitly scoped.
 
-### Final Status
-`Fixed` | `Cannot Reproduce` | `Needs More Info` | `Blocked: [reason]`
+## 5. Validation Results
+
+| Check | Result | Notes |
+|---|---|---|
+| Build | passed/failed/not available | [notes] |
+| Typecheck | passed/failed/not available | [notes] |
+| Lint | passed/failed/not available | [notes] |
+| Tests | passed/failed/not available | [notes] |
+| Diff check | passed/failed/not available | [notes] |
+| Manual verification | passed/failed/not performed/not required | [notes] |
+
+## 6. Baseline Notes
+
+- Existing baseline:
+- New errors introduced: Yes/No
+- New warnings introduced: Yes/No
+- Baseline worsened: Yes/No
+- Notes:
+
+## 7. Risks / Follow-Ups
+
+- [risk or follow-up]
+
+## 8. Final Status
+
+Ready for review / Blocked / Needs owner decision / Needs manual verification
+
+## 9. Final Git Status
+
+TEXT BLOCK:
+[git status --short]
+[git diff --stat]
 ```
 
 ---
@@ -111,7 +129,7 @@ Before starting, you need:
 - Do not change authentication, authorization, or data scoping unless the bug is specifically in those areas
 - If the fix requires a migration, stop and request approval
 - If the bug reveals a deeper architectural issue, report it — do not fix the architecture
-- All validation commands must pass after the fix
+- All validation commands must satisfy baseline-aware validation rules after the fix (no new errors allowed, and no new warnings beyond the baseline)
 
 ---
 
