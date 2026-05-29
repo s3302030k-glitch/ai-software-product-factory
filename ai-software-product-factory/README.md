@@ -2,6 +2,8 @@
 
 > A reusable documentation and prompt system that simulates a full software product team using AI agents.
 
+New here? Start with [START_HERE.md](START_HERE.md).
+
 ---
 
 ## What Is This?
