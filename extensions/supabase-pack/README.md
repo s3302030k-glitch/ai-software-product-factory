@@ -1,51 +1,16 @@
 # Extension Pack: Supabase
 
-> Adds Supabase-specific architecture patterns, Row Level Security (RLS), Edge Functions, and storage documentation.
+> Adds Supabase-specific architecture patterns, Row Level Security (RLS), Edge Functions, database migrations, and storage documentation.
+
+This is a fully implemented extension pack, supplementing the core factory templates.
 
 ---
 
-## When to Use This Pack
+## Purpose and Scope
 
-Use this extension pack when your product:
+This pack **supplements** the core factory documents; it does **not** replace them. It is designed for software products that use Supabase for database management, authentication, RLS, file storage, and/or edge functions.
 
-- Uses **Supabase** as the backend platform
-- Relies on **Supabase Auth** for authentication
-- Uses **Row Level Security (RLS)** for data access control
-- Implements server-side logic with **Supabase Edge Functions**
-- Uses **Supabase Storage** for file uploads
-- Leverages **Supabase Realtime** for live updates
-
----
-
-## What This Pack Will Add (When Built)
-
-### Additional Documents
-
-| Document | Purpose |
-|----------|---------|
-| `supabase-architecture.md` | Supabase-specific project structure, client setup, environment config |
-| `rls-policy-spec.md` | Row Level Security policies for every table, with test cases |
-| `edge-functions-spec.md` | Edge Function definitions, triggers, input/output contracts |
-| `supabase-storage-spec.md` | Bucket structure, access policies, file type restrictions |
-| `supabase-auth-config.md` | Auth providers, email templates, redirect URLs, session config |
-| `supabase-migration-guide.md` | Migration workflow, seed data, local development setup |
-| `supabase-realtime-spec.md` | Realtime subscriptions, channels, presence features |
-
-### Additional Prompts
-
-| Prompt | Purpose |
-|--------|---------|
-| `supabase-engineer-prompt.md` | AI agent role specialized in Supabase patterns and best practices |
-
-### Additional Guardrails
-
-- Every table must have RLS policies — no exceptions
-- RLS policies must be tested for every role
-- Edge Functions must validate all inputs
-- Service role key must never be exposed to the client
-- Storage buckets must have access policies
-- Migrations must use Supabase CLI format
-- Local development must use Supabase CLI with local containers
+This pack includes reusable document templates and role prompts. It is strictly template-based and does not contain product-specific details, private business information, real credentials, real project IDs, or real migrations.
 
 ---
 
@@ -53,30 +18,45 @@ Use this extension pack when your product:
 
 | Risk | How This Pack Helps |
 |------|-------------------|
-| Missing RLS exposes all data | Mandatory RLS spec for every table |
-| Service key exposed in client code | Explicit rules about key usage |
-| Edge Function errors are silent | Input validation and error handling spec |
-| Storage bucket open to public | Storage access policy spec |
-| Migration conflicts | Migration workflow and naming conventions |
+| **Unsafe RLS policies** | Establishes strict principles for Row Level Security design and reviews. |
+| **Security definer exposure** | Audits database functions to prevent privilege escalation. |
+| **Over-broad service role usage** | RESTRICTS service role key usage to secure backend environments. |
+| **Unreviewed migrations** | Provides structured checklists for database schema changes. |
+| **Storage bucket policy mistakes** | Differentiates public/private buckets and maps access paths. |
+| **Edge function authorization mistakes** | Mandates token verification and permission checks in serverless endpoints. |
+| **Client-side trust mistakes** | Establishes the rule that client filters are not security barriers. |
 
 ---
 
-## Example Project Types
+## Pack Components
 
-- Any web application using Supabase as backend
-- Serverless applications with Supabase
-- Real-time collaborative applications
-- Rapid MVP development projects
-- JAMstack applications with Supabase backend
+### Documentation Guidelines (`docs/`)
+
+- [Supabase Architecture](docs/supabase-architecture.md) — Tech stack mapping, boundaries, and client-server access model rules.
+- [Row Level Security (RLS) Guidelines](docs/rls-policy-guidelines.md) — RLS policy structure, roles, schemas, and security definer safety.
+- [Database Migration Guidelines](docs/database-migration-guidelines.md) — Safe schema modification guidelines, naming, rollback strategies, and approval gates.
+- [Auth and Session Guidelines](docs/auth-and-session-guidelines.md) — User identification, profile patterns, permission boundaries, and server-side verification.
+- [Storage Guidelines](docs/storage-guidelines.md) — Bucket definitions, public/private scoping, path conventions, and file upload/access policies.
+- [Edge Functions Guidelines](docs/edge-functions-guidelines.md) — Serverless logic scoping, authentication validation, error logging, and secrets management.
+- [Supabase QA Checklist](docs/supabase-qa-checklist.md) — Comprehensive pre-release QA matrix covering migrations, auth, RLS, and functions.
+
+### AI Agent Role Prompts (`prompts/`)
+
+- [Supabase Architect](prompts/supabase-architect-prompt.md) — Role for high-level architecture design and boundary definitions.
+- [RLS Policy Review Agent](prompts/rls-policy-review-agent-prompt.md) — Auditor for verifying the safety of proposed database RLS rules.
+- [Supabase Migration Review Agent](prompts/migration-review-agent-prompt.md) — Auditor for validating migration SQL safety and backward compatibility.
+- [Edge Function Review Agent](prompts/edge-function-review-agent-prompt.md) — Auditor for verifying security and error handling in Deno edge functions.
 
 ---
 
-## Status
+## Recommended Usage
 
-> **Status: Placeholder / Planned Future Pack**
->
-> This extension pack is currently a **placeholder**. The folder contains only this README. Full templates, prompts, and instructions will be added in a future version.
->
-> **Core Governance Rule:** Extension packs are optional and exist to **supplement** core documents for specific product needs — they do **not** replace core documents.
->
-> For workspace setup instructions and core rules, link back to [START_HERE.md](../../START_HERE.md).
+Follow these steps to integrate this extension pack into your product project:
+
+1. **Initialize Core Kit:** Copy the core factory documents (`core/docs/`) and prompt templates (`core/prompts/`) into your product project first.
+2. **Apply Supabase Pack:** Copy the contents of this folder (`docs/` and `prompts/`) into your project *only* if Supabase is part of the system architecture.
+3. **Integrate Documentation:** Merge the guidelines from `docs/` into your active product documentation.
+4. **Use Prompt Templates:** Assign the specialized Supabase prompts to your AI agents to guide architectural design, RLS creation, and code reviews before implementation.
+5. **Enforce Governance:** Never apply migrations or modify RLS policies directly in production without human owner approval.
+
+For workspace setup instructions and core governance rules, link back to [START_HERE.md](../../START_HERE.md).
