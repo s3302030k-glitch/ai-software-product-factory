@@ -2,10 +2,10 @@
 
 ## 1. Current Release Summary
 
-* **Current latest release:** v1.3.0
+* **Current latest release:** v1.5.0
 * **Repository status:** public/template-ready
 * **Main purpose:** reusable AI-assisted software product factory kit
-* **Current maturity:** Core Factory + 3 implemented extension packs
+* **Current maturity:** Core Factory + 5 implemented extension packs
 
 ---
 
@@ -17,6 +17,8 @@
 | v1.1.0 | Supabase Extension Pack | Supabase docs/prompts for RLS, migrations, auth, storage, edge functions | Released |
 | v1.2.0 | RTL/i18n Extension Pack | RTL UI, localization, formatting, translation keys, localization QA | Released |
 | v1.3.0 | Financial Business Logic Pack | Money, currency, calculations, payment/settlement, audit, units, financial QA | Released |
+| v1.4.0 | Print Reporting Pack | Print/PDF/export/reporting docs and prompts | Released |
+| v1.5.0 | ERP Operations Pack | ERP operations, inventory, warehouse, workflow, audit, operational reporting docs/prompts | Released |
 
 ---
 
@@ -44,6 +46,8 @@
 * [supabase-pack](extensions/supabase-pack/README.md)
 * [rtl-i18n-pack](extensions/rtl-i18n-pack/README.md)
 * [financial-business-logic-pack](extensions/financial-business-logic-pack/README.md)
+* [print-reporting-pack](extensions/print-reporting-pack/README.md)
+* [erp-operations-pack](extensions/erp-operations-pack/README.md)
 
 ### Placeholder / Future Examples
 
@@ -52,8 +56,6 @@
 
 ### Placeholder / Future Extension Packs
 
-* [print-reporting-pack](extensions/print-reporting-pack/README.md)
-* [erp-operations-pack](extensions/erp-operations-pack/README.md)
 * [ecommerce-pack](extensions/ecommerce-pack/README.md)
 * [mobile-app-pack](extensions/mobile-app-pack/README.md)
 * [saas-multitenant-pack](extensions/saas-multitenant-pack/README.md)
@@ -67,8 +69,8 @@
 | [supabase-pack](extensions/supabase-pack/README.md) | Implemented | Product uses Supabase database/auth/RLS/storage/edge functions | Unsafe RLS, service role exposure, migration mistakes, storage policy errors, edge function auth mistakes |
 | [rtl-i18n-pack](extensions/rtl-i18n-pack/README.md) | Implemented | Product needs RTL, multilingual content, locale formatting, translation keys, localization QA | Broken RTL layout, hardcoded strings, translation key drift, locale formatting errors, mixed-direction text issues |
 | [financial-business-logic-pack](extensions/financial-business-logic-pack/README.md) | Implemented | Product has money, payments, currency, units, invoices, settlement, financial reports, audit approvals | Money calculation errors, rounding mistakes, payment/settlement confusion, missing audit trail, unit conversion errors |
-| [print-reporting-pack](extensions/print-reporting-pack/README.md) | Placeholder / future | Product needs PDF, print layouts, exports, reports, invoices, contracts | UI/export mismatch, print layout breakage, report totals inconsistency |
-| [erp-operations-pack](extensions/erp-operations-pack/README.md) | Placeholder / future | Product has warehouse, inventory, operations, approvals, workflows | Operational state confusion, inventory mismatch, poor approval traceability |
+| [print-reporting-pack](extensions/print-reporting-pack/README.md) | Implemented | Product needs PDF, print layouts, exports, reports, invoices, contracts | UI/export mismatch, print layout breakage, report totals inconsistency |
+| [erp-operations-pack](extensions/erp-operations-pack/README.md) | Implemented | Use when: product has inventory, warehouse, receiving, shipping, workflows, approvals, operational audit trails, operational reporting, or ERP-style operations. | Key risks: inventory mismatch, stock movement ambiguity, warehouse location confusion, approval bypass, workflow state mistakes, operational report mismatch. |
 | [ecommerce-pack](extensions/ecommerce-pack/README.md) | Placeholder / future | Product has catalog, cart, checkout, orders, promotions, payment flows | Checkout state errors, inventory/cart mismatch, promotion calculation issues |
 | [mobile-app-pack](extensions/mobile-app-pack/README.md) | Placeholder / future | Product includes mobile app flows | Offline state, device permissions, app store release, push notification behavior |
 | [saas-multitenant-pack](extensions/saas-multitenant-pack/README.md) | Placeholder / future | Product has organizations, tenants, subscriptions, roles, plans | Tenant data leakage, plan gating mistakes, role boundary bugs |
@@ -79,9 +81,9 @@
 
 * **Core Factory:** Production-ready as documentation/template kit.
 * **Extension framework:** Established.
-* **Implemented packs:** 3.
-* **Examples:** 1 completed documentation reference, 2 placeholders.
-* **Runtime application code:** Not included by design.
+* **Implemented packs:** 5
+* **Examples:** 1 completed documentation reference, 2 placeholders
+* **Runtime application code:** not included by design
 * **Security/secrets:** No credentials or private project data intended.
 
 > [!NOTE]
@@ -103,13 +105,13 @@
 
 ## 7. Recommended Next Roadmap
 
-| Target Version | Proposed Work | Reason |
-| -------------- | ------------- | ------ |
-| v1.4.0 | [print-reporting-pack](extensions/print-reporting-pack/README.md) | Useful for PDFs, invoices, reports, contracts, exports |
-| v1.5.0 | [erp-operations-pack](extensions/erp-operations-pack/README.md) | Useful for inventory, warehouse, workflows, operational approvals |
-| v1.6.0 | [saas-multitenant-pack](extensions/saas-multitenant-pack/README.md) | Useful for SaaS products with organizations, roles, plans |
-| v1.7.0 | [medium-saas-app](examples/medium-saas-app/README.md) example | Demonstrates multi-role SaaS documentation in practice |
-| v1.8.0 | [complex-erp-app](examples/complex-erp-app/README.md) example | Demonstrates operational/ERP documentation in practice |
+| Target Version | Proposed Work           | Reason                                                                            |
+| -------------- | ----------------------- | --------------------------------------------------------------------------------- |
+| v1.6.0         | saas-multitenant-pack   | Useful for SaaS products with organizations, tenants, subscriptions, roles, plans |
+| v1.7.0         | ecommerce-pack          | Useful for catalog, cart, checkout, orders, promotions, payment flows             |
+| v1.8.0         | mobile-app-pack         | Useful for mobile app flows, offline states, permissions, app-store readiness     |
+| v1.9.0         | medium-saas-app example | Demonstrates multi-role SaaS documentation in practice                            |
+| v2.0.0         | complex-erp-app example | Demonstrates operational/ERP documentation in practice                            |
 
 ---
 
@@ -129,11 +131,13 @@
 
 * **Working tree status:** Clean (`git status --short` is empty).
 * **Branch status:** `main` is up to date with remote `origin/main`.
-* **Latest tag:** `v1.3.0`
+* **Latest tag:** `v1.5.0`
 * **All tagged versions:**
   * `v1.0.0`
   * `v1.1.0`
   * `v1.2.0`
   * `v1.3.0`
-* **Latest commit hash:** `b17136019e3643e41f18245d121ad7447c8dcb88`
-* **Latest commit message:** `docs: implement financial business logic extension pack`
+  * `v1.4.0`
+  * `v1.5.0`
+* **Latest commit hash:** `6934515135079cfa90bc01173200eecea219d15f`
+* **Latest commit message:** `docs: fix erp operations sibling links`

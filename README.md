@@ -51,9 +51,9 @@ To guide your reference, here is the implementation status of folders in this re
   - **[supabase-pack](extensions/supabase-pack/README.md)**
   - **[rtl-i18n-pack](extensions/rtl-i18n-pack/README.md)**
   - **[financial-business-logic-pack](extensions/financial-business-logic-pack/README.md)**
-- **Placeholder / Planned Extension Packs:**
   - **[print-reporting-pack](extensions/print-reporting-pack/README.md)**
   - **[erp-operations-pack](extensions/erp-operations-pack/README.md)**
+- **Placeholder / Planned Extension Packs:**
   - **[ecommerce-pack](extensions/ecommerce-pack/README.md)**
   - **[mobile-app-pack](extensions/mobile-app-pack/README.md)**
   - **[saas-multitenant-pack](extensions/saas-multitenant-pack/README.md)**
