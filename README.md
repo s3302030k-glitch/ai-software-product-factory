@@ -2,6 +2,8 @@
 
 > A reusable documentation and prompt system that simulates a full software product team using AI agents.
 
+Project status: see [FACTORY_STATUS.md](FACTORY_STATUS.md).
+
 New here? Start with [START_HERE.md](START_HERE.md).
 
 ---
@@ -45,7 +47,16 @@ To guide your reference, here is the implementation status of folders in this re
 - **[examples/small-crud-app](examples/small-crud-app/README.md) (Invoice Tracker):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and a mock batch sequence.
 - **[examples/medium-saas-app](examples/medium-saas-app/README.md):** **Placeholder / Planned**. Will demonstrate multi-tenant SaaS architectures in a future update.
 - **[examples/complex-erp-app](examples/complex-erp-app/README.md):** **Placeholder / Planned**. Will demonstrate complex ERP, workflows, and cross-module synchronization.
-- **Extension Packs (`extensions/*`):** **Placeholders / Planned**. The folders contain initial README files explaining when and how to apply each pack, but full documents/prompts will be added in future versions.
+- **Implemented Extension Packs:**
+  - **[supabase-pack](extensions/supabase-pack/README.md)**
+  - **[rtl-i18n-pack](extensions/rtl-i18n-pack/README.md)**
+  - **[financial-business-logic-pack](extensions/financial-business-logic-pack/README.md)**
+- **Placeholder / Planned Extension Packs:**
+  - **[print-reporting-pack](extensions/print-reporting-pack/README.md)**
+  - **[erp-operations-pack](extensions/erp-operations-pack/README.md)**
+  - **[ecommerce-pack](extensions/ecommerce-pack/README.md)**
+  - **[mobile-app-pack](extensions/mobile-app-pack/README.md)**
+  - **[saas-multitenant-pack](extensions/saas-multitenant-pack/README.md)**
 
 ---
 
