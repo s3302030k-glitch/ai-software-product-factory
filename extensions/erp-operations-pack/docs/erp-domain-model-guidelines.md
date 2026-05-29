@@ -125,7 +125,7 @@ All business logic must live in the backend database layer (triggers, constraint
 ## Out of Scope
 
 - Legal or regulatory reporting compliance details.
-- Accounting ledger configurations (covered by [financial-business-logic-pack](../financial-business-logic-pack/README.md)).
+- Accounting ledger configurations (covered by [financial-business-logic-pack](../../financial-business-logic-pack/README.md)).
 - Database execution plan optimizations.
 
 ---

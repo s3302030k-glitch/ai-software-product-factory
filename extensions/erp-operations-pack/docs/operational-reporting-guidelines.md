@@ -6,7 +6,7 @@
 
 ## Purpose
 
-This document outlines standard guidelines for designing and building operational dashboards, summaries, and reports. It prevents reporting discrepancies and ensures numbers presented in reports match underlying transaction records. It supplements the reporting rules in [extensions/print-reporting-pack/README.md](../print-reporting-pack/README.md) and relates to [inventory-and-stock-guidelines.md](inventory-and-stock-guidelines.md).
+This document outlines standard guidelines for designing and building operational dashboards, summaries, and reports. It prevents reporting discrepancies and ensures numbers presented in reports match underlying transaction records. It supplements the reporting rules in [extensions/print-reporting-pack/README.md](../../print-reporting-pack/README.md) and relates to [inventory-and-stock-guidelines.md](inventory-and-stock-guidelines.md).
 
 ## Status
 
@@ -19,7 +19,7 @@ This document outlines standard guidelines for designing and building operationa
 ### 1. Reconciliation Against Source Records
 Operational reports must reconcile with the underlying transaction logs (source of truth).
 - **Inventory Reports**: Must reconcile directly with the historical sum of stock movements.
-- **Financial Values**: Must reconcile with invoice ledger logs (aligned with [financial-business-logic-pack](../financial-business-logic-pack/README.md)).
+- **Financial Values**: Must reconcile with invoice ledger logs (aligned with [financial-business-logic-pack](../../financial-business-logic-pack/README.md)).
 - **Rule**: If a report displays cached or aggregated numbers that deviate from transaction-level sums, the system must trigger a validation warning.
 
 ### 2. Explicit Time Range and Timezone Boundaries
@@ -71,7 +71,7 @@ Reports must print, display, or log all filters that affect the totals shown (e.
 
 ## Export, Print, and Reporting Alignment
 
-When reports are exported to CSV/Excel or printed as PDFs, they must align with the standards defined in [print-reporting-pack](../print-reporting-pack/README.md):
+When reports are exported to CSV/Excel or printed as PDFs, they must align with the standards defined in [print-reporting-pack](../../print-reporting-pack/README.md):
 - **Precision Matching**: Aggregated values on the screen dashboard must match the exported file totals down to the last decimal place.
 - **Formatting Constraints**: Large tables must handle page breaks gracefully in PDFs without truncating columns.
 - **CSV Formats**: Standardize on CSV format conventions, matching localized decimal separators to avoid parse failures.

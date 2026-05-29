@@ -91,7 +91,7 @@ For products requiring traceability:
 ## Unit and Quantity Handling
 
 - **Base Units**: Store all quantities in the base unit of measure (e.g., `pcs`, `grams`, `ml`) as integers or high-precision decimals. Avoid fractional floats.
-- **Alignment**: Quantity and unit handling must align with the rounding and calculation rules in [financial-business-logic-pack](../financial-business-logic-pack/README.md) if quantities are multiplied by prices or used in financial reporting.
+- **Alignment**: Quantity and unit handling must align with the rounding and calculation rules in [financial-business-logic-pack](../../financial-business-logic-pack/README.md) if quantities are multiplied by prices or used in financial reporting.
 
 ---
 
