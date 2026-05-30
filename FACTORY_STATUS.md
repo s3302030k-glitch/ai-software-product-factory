@@ -2,10 +2,10 @@
 
 ## 1. Current Release Summary
 
-* **Current latest release:** v1.6.0
+* **Current latest release:** v1.7.0
 * **Repository status:** public/template-ready
 * **Main purpose:** reusable AI-assisted software product factory kit
-* **Current maturity:** Core Factory + 6 implemented extension packs
+* **Current maturity:** Core Factory + 7 implemented extension packs
 
 ---
 
@@ -20,6 +20,7 @@
 | v1.4.0 | Print Reporting Pack | Print/PDF/export/reporting docs and prompts | Released |
 | v1.5.0 | ERP Operations Pack | ERP operations, inventory, warehouse, workflow, audit, operational reporting docs/prompts | Released |
 | v1.6.0 | SaaS Multitenant Pack | SaaS organizations, tenants, memberships, permissions, subscriptions, billing boundary, tenant isolation docs/prompts | Released |
+| v1.7.0 | Ecommerce Pack | Ecommerce catalog, product/SKU/variant, cart, checkout, orders, payments, refunds, promotions, reporting docs/prompts | Released |
 
 ---
 
@@ -50,6 +51,7 @@
 * [print-reporting-pack](extensions/print-reporting-pack/README.md)
 * [erp-operations-pack](extensions/erp-operations-pack/README.md)
 * [saas-multitenant-pack](extensions/saas-multitenant-pack/README.md)
+* [ecommerce-pack](extensions/ecommerce-pack/README.md)
 
 ### Placeholder / Future Examples
 
@@ -58,7 +60,6 @@
 
 ### Placeholder / Future Extension Packs
 
-* [ecommerce-pack](extensions/ecommerce-pack/README.md)
 * [mobile-app-pack](extensions/mobile-app-pack/README.md)
 
 ---
@@ -73,7 +74,7 @@
 | [print-reporting-pack](extensions/print-reporting-pack/README.md) | Implemented | Product needs PDF, print layouts, exports, reports, invoices, contracts | UI/export mismatch, print layout breakage, report totals inconsistency |
 | [erp-operations-pack](extensions/erp-operations-pack/README.md) | Implemented | Use when: product has inventory, warehouse, receiving, shipping, workflows, approvals, operational audit trails, operational reporting, or ERP-style operations. | Key risks: inventory mismatch, stock movement ambiguity, warehouse location confusion, approval bypass, workflow state mistakes, operational report mismatch. |
 | [saas-multitenant-pack](extensions/saas-multitenant-pack/README.md) | Implemented | Use when: product has SaaS organizations, tenants, workspaces, team memberships, roles, subscriptions, plans, tenant switching, billing boundaries, or tenant-scoped data. | Key risks: tenant data leakage, incorrect organization/member scoping, permission boundary mistakes, plan gating errors, subscription state confusion, billing/access coupling mistakes, cross-tenant export/report leaks. |
-| [ecommerce-pack](extensions/ecommerce-pack/README.md) | Placeholder / future | Product has catalog, cart, checkout, orders, promotions, payment flows | Checkout state errors, inventory/cart mismatch, promotion calculation issues |
+| [ecommerce-pack](extensions/ecommerce-pack/README.md) | Implemented | Use when: product has product catalogs, SKUs, variants, carts, checkout flows, orders, payment/refund states, promotions, discounts, inventory reservation, fulfillment, customer accounts, ecommerce reports, or marketplace-style transactions. | Key risks: cart total mismatch, price calculation mistakes, discount stacking errors, checkout state confusion, order/payment mismatch, refund ambiguity, inventory reservation mismatch, variant/SKU confusion, customer data exposure, report/export mismatch. |
 | [mobile-app-pack](extensions/mobile-app-pack/README.md) | Placeholder / future | Product includes mobile app flows | Offline state, device permissions, app store release, push notification behavior |
 
 ---
@@ -82,7 +83,7 @@
 
 * **Core Factory:** Production-ready as documentation/template kit.
 * **Extension framework:** Established.
-* **Implemented packs:** 6
+* **Implemented packs:** 7
 * **Examples:** 1 completed documentation reference, 2 placeholders
 * **Runtime application code:** not included by design
 * **Security/secrets:** No credentials or private project data intended.
@@ -108,7 +109,6 @@
 
 | Target Version | Proposed Work           | Reason                                                                        |
 | -------------- | ----------------------- | ----------------------------------------------------------------------------- |
-| v1.7.0         | ecommerce-pack          | Useful for catalog, cart, checkout, orders, promotions, payment flows         |
 | v1.8.0         | mobile-app-pack         | Useful for mobile app flows, offline states, permissions, app-store readiness |
 | v1.9.0         | medium-saas-app example | Demonstrates multi-role SaaS documentation in practice                        |
 | v2.0.0         | complex-erp-app example | Demonstrates operational/ERP documentation in practice                        |
@@ -131,7 +131,7 @@
 
 * **Working tree status:** Clean (`git status --short` is empty).
 * **Branch status:** `main` is up to date with remote `origin/main`.
-* **Latest tag:** `v1.6.0`
+* **Latest tag:** `v1.7.0`
 * **All tagged versions:**
   * `v1.0.0`
   * `v1.1.0`
@@ -140,5 +140,6 @@
   * `v1.4.0`
   * `v1.5.0`
   * `v1.6.0`
-* **Latest commit hash:** `ccc1d58006a8c5b3a6140305dac0a5b3b4937e8e`
-* **Latest commit message:** `docs: implement saas multitenant extension pack`
+  * `v1.7.0`
+* **Latest commit hash:** `de2dcb7f90c8e767a15b9baae592ccd5dd78a597`
+* **Latest commit message:** `docs: implement ecommerce extension pack`
