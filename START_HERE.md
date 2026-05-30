@@ -205,7 +205,7 @@ Extension packs are optional sets of templates, rules, and prompts built for spe
 > - [ecommerce-pack](extensions/ecommerce-pack/README.md)
 > - [mobile-app-pack](extensions/mobile-app-pack/README.md)
 >
-> **Future work now focuses on examples:**
+> **All planned reference examples are completed:**
 > - [v1.9.0 medium-saas-app example](examples/medium-saas-app/README.md)
 > - [v2.0.0 complex-erp-app example](examples/complex-erp-app/README.md)
 
@@ -226,7 +226,8 @@ Only copy extension templates if your product requires them:
 Examples in the `examples/` directory demonstrate the factory templates in action.
 
 - **[examples/small-crud-app/README.md](examples/small-crud-app/README.md) (Invoice Tracker):** **Completed & fully filled documentation reference**. A complete reference demonstrating clients, invoices, payments, roles, roadmap, and a sample batch request. Use this to understand how to fill out your documents for simple products.
-- **`medium-saas-app` / `complex-erp-app`:** **Placeholder templates (planned/future)** demonstrating how core docs scale to support larger architectures.
+- **[examples/medium-saas-app/README.md](examples/medium-saas-app/README.md) (Team Subscription Manager):** **Completed & fully filled documentation reference**. A medium-complexity reference demonstrating multitenancy, roles, dashboards, billing integration, and custom review prompts.
+- **[examples/complex-erp-app/README.md](examples/complex-erp-app/README.md) (Integrated Operations ERP):** **Completed & fully filled documentation reference**. A high-complexity reference demonstrating operations modules, inventory/warehouse rules, derived stock balances, approvals, multi-layered security, and custom review prompts.
 - **Reference, don't Copy:** Use examples to learn how to detail your specs, but do not copy their architecture or data structures unless they fit your goals.
 
 ---
