@@ -93,7 +93,7 @@ This example incorporates guidelines and structures from the following factory e
 - [02-target-users.md](02-target-users.md) — Personas and detailed user permissions.
 - [03-mvp-scope.md](03-mvp-scope.md) — Detailed feature boundaries and MoSCoW scoping.
 - [07-data-model.md](07-data-model.md) — Database schema blueprints and data structures.
-- [14-decision-log.md](04-decision-log.md) — Architectural decisions behind Team Subscription Manager.
+- [14-decision-log.md](14-decision-log.md) — Architectural decisions behind Team Subscription Manager.
 
 ---
 
