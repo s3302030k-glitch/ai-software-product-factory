@@ -55,8 +55,9 @@ To guide your reference, here is the implementation status of folders in this re
   - **[erp-operations-pack](extensions/erp-operations-pack/README.md)**
   - **[saas-multitenant-pack](extensions/saas-multitenant-pack/README.md)**
   - **[ecommerce-pack](extensions/ecommerce-pack/README.md)**
-- **Placeholder / Planned Extension Packs:**
   - **[mobile-app-pack](extensions/mobile-app-pack/README.md)**
+- **Placeholder / Planned Extension Packs:**
+  - None at this stage
 
 ---
 
