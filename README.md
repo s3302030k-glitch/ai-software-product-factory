@@ -2,7 +2,7 @@
 
 > A reusable documentation and prompt system that simulates a full software product team using AI agents.
 
-Project status: see [FACTORY_STATUS.md](FACTORY_STATUS.md).
+Project status: see [FACTORY_STATUS.md](FACTORY_STATUS.md) | [Release Notes](RELEASE_NOTES.md).
 
 New here? Start with [START_HERE.md](START_HERE.md).
 
