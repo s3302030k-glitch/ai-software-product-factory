@@ -144,5 +144,5 @@
   * `v1.6.0`
   * `v1.7.0`
   * `v1.8.0`
-* **Latest commit hash:** `7a3483f6e1948397c0fc7600ad8e003a4228cd61`
-* **Latest commit message:** `docs: implement mobile app extension pack`
+* **Latest release tag commit:** `7a3483f6e1948397c0fc7600ad8e003a4228cd61` (`docs: implement mobile app extension pack`)
+* **Latest repository status commit:** `1a2a213` (`docs: update factory status for v1.8.0`)

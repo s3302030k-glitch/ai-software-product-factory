@@ -193,7 +193,21 @@ Once a batch is approved and merged, you must update the workspace index:
 Extension packs are optional sets of templates, rules, and prompts built for specific product needs. They supplement, but do not replace, the core documentation.
 
 > [!NOTE]
-> All extension packs in the `extensions/` directory are currently **placeholders/planned** for a future version. Their README files explain when and how to apply each pack, but do not yet contain filled-in templates or prompts.
+> All currently planned v1.x extension packs are implemented.
+>
+> **Implemented extension packs:**
+> - [supabase-pack](extensions/supabase-pack/README.md)
+> - [rtl-i18n-pack](extensions/rtl-i18n-pack/README.md)
+> - [financial-business-logic-pack](extensions/financial-business-logic-pack/README.md)
+> - [print-reporting-pack](extensions/print-reporting-pack/README.md)
+> - [erp-operations-pack](extensions/erp-operations-pack/README.md)
+> - [saas-multitenant-pack](extensions/saas-multitenant-pack/README.md)
+> - [ecommerce-pack](extensions/ecommerce-pack/README.md)
+> - [mobile-app-pack](extensions/mobile-app-pack/README.md)
+>
+> **Future work now focuses on examples:**
+> - [v1.9.0 medium-saas-app example](examples/medium-saas-app/README.md)
+> - [v2.0.0 complex-erp-app example](examples/complex-erp-app/README.md)
 
 Only copy extension templates if your product requires them:
 - **`rtl-i18n-pack`:** For products requiring right-to-left languages or internationalization.
