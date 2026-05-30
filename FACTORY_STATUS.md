@@ -2,15 +2,22 @@
 
 ## 1. Current Release Summary
 
-* **Current latest release:** v2.0.0
+* **Current latest release:** v2.1.0
 * **Repository status:** public/template-ready
 * **Main purpose:** reusable AI-assisted software product factory kit
-* **Current maturity:** Core Factory + 8 implemented extension packs + 3 completed documentation reference examples
+* **Current maturity:** Core Factory + 8 implemented extension packs + 3 completed documentation reference examples + public usability guides
 
 The completed examples are:
 * small-crud-app
 * medium-saas-app
 * complex-erp-app
+
+The public usability guides are:
+* [GLOSSARY.md](GLOSSARY.md)
+* [CONTRIBUTING.md](CONTRIBUTING.md)
+* [TROUBLESHOOTING.md](TROUBLESHOOTING.md)
+* [HOW_TO_USE_THIS_FACTORY.md](HOW_TO_USE_THIS_FACTORY.md)
+* [RELEASE_NOTES.md](RELEASE_NOTES.md)
 
 ---
 
@@ -29,6 +36,7 @@ The completed examples are:
 | v1.8.0 | Mobile App Pack | Mobile product scope, UX/navigation, offline sync, device permissions, push notifications, mobile security/privacy, app-store release, mobile QA docs/prompts | Released |
 | v1.9.0 | Medium SaaS App Reference Example | Completed documentation reference for Team Subscription Manager, a fictional B2B SaaS product demonstrating multitenancy, Supabase concepts, financial placeholders, print/reporting, and RTL/i18n readiness | Released |
 | v2.0.0 | Complex ERP App Reference Example | Completed documentation reference for Integrated Operations ERP, a fictional complex multi-module ERP operations product demonstrating ERP Operations, Financial, Print/Reporting, Supabase, RTL/i18n, and Mobile App concepts where relevant | Released |
+| v2.1.0 | Public Usability Polish Guides | Added glossary, contribution guide, troubleshooting guide, improved README navigation, example numbering note, and API style adaptation guidance | Released |
 
 ---
 
@@ -101,8 +109,8 @@ The completed examples are:
 * **Completed documentation reference examples:** 3
 * **Placeholder examples:** 0
 * **Runtime application code:** not included by design
-* **Complex ERP example:** completed and released as v2.0.0
-* **Extension pack set:** complete for the currently planned v1.x extension roadmap
+* **Public usability polish:** completed and released as v2.1.0
+* **Current roadmap:** complete through v2.1.0
 * **Security/secrets:** No credentials or private project data intended.
 
 > [!NOTE]
@@ -144,7 +152,7 @@ The completed examples are:
 
 * **Working tree status:** Clean (`git status --short` is empty).
 * **Branch status:** `main` is up to date with remote `origin/main`.
-* **Latest tag:** `v2.0.0`
+* **Latest tag:** `v2.1.0`
 * **All tagged versions:**
   * `v1.0.0`
   * `v1.1.0`
@@ -157,5 +165,6 @@ The completed examples are:
   * `v1.8.0`
   * `v1.9.0`
   * `v2.0.0`
-* **Latest release tag commit:** `13334ce444cfcc6edd3a4b2f27d1f335b122f77e` (`docs(examples): add complex-erp-app completed documentation reference`)
-* **Latest repository status commit:** `13334ce444cfcc6edd3a4b2f27d1f335b122f77e` (`docs(examples): add complex-erp-app completed documentation reference`)
+  * `v2.1.0`
+* **Latest release tag commit:** `534de53` (`docs: add public usability polish guides`)
+* **Latest repository status commit:** `534de53` (`docs: add public usability polish guides`)

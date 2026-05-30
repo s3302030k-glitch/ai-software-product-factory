@@ -93,6 +93,7 @@ Three reference examples are fully documented under the `examples/` directory to
 | **v1.8.0** | Mobile App Pack | Mobile UX, permissions, offline sync, push, app-store readiness guidance |
 | **v1.9.0** | Medium SaaS Example | Team Subscription Manager completed reference example |
 | **v2.0.0** | Complex ERP Example | Integrated Operations ERP completed reference example |
+| **v2.1.0** | Public Usability Polish Guides | Added glossary, contribution guide, troubleshooting guide, README navigation, example numbering note, and API style adaptation guidance |
 
 ---
 
@@ -152,6 +153,16 @@ While the planned roadmap is fully completed and clean, the following optional p
 
 ---
 
+## Post-v2.0.0 Usability Polish
+
+The v2.1.0 release added public usability guides, including:
+* Added [GLOSSARY.md](GLOSSARY.md), [CONTRIBUTING.md](CONTRIBUTING.md), and [TROUBLESHOOTING.md](TROUBLESHOOTING.md).
+* Improved [README.md](README.md) navigation.
+* Added an example numbering note and API style adaptation note in the guides.
+* These usability improvements do not change the non-runnable boundary; no runtime application code or dependencies were added.
+
+---
+
 ## Final Status
 
-**The AI Software Product Factory roadmap is complete through v2.0.0.** The repository is officially locked, clean, and fully mature for use as a documentation-first software product factory template.
+**The AI Software Product Factory roadmap is complete through v2.1.0.** The repository is officially locked, clean, and fully mature for use as a documentation-first software product factory template.
