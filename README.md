@@ -46,7 +46,7 @@ To guide your reference, here is the implementation status of folders in this re
 
 - **[examples/small-crud-app](examples/small-crud-app/README.md) (Invoice Tracker):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and a mock batch sequence.
 - **[examples/medium-saas-app](examples/medium-saas-app/README.md) (Team Subscription Manager):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and AI agent prompts.
-- **[examples/complex-erp-app](examples/complex-erp-app/README.md):** **Placeholder / Planned**. Will demonstrate complex ERP, workflows, and cross-module synchronization.
+- **[examples/complex-erp-app](examples/complex-erp-app/README.md) (Integrated Operations ERP):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and AI agent prompts.
 - **Implemented Extension Packs:**
   - **[supabase-pack](extensions/supabase-pack/README.md)**
   - **[rtl-i18n-pack](extensions/rtl-i18n-pack/README.md)**

@@ -2,14 +2,15 @@
 
 ## 1. Current Release Summary
 
-* **Current latest release:** v1.9.0
+* **Current latest release:** v2.0.0
 * **Repository status:** public/template-ready
 * **Main purpose:** reusable AI-assisted software product factory kit
-* **Current maturity:** Core Factory + 8 implemented extension packs + 2 completed documentation reference examples
+* **Current maturity:** Core Factory + 8 implemented extension packs + 3 completed documentation reference examples
 
 The completed examples are:
 * small-crud-app
 * medium-saas-app
+* complex-erp-app
 
 ---
 
@@ -27,6 +28,7 @@ The completed examples are:
 | v1.7.0 | Ecommerce Pack | Ecommerce catalog, product/SKU/variant, cart, checkout, orders, payments, refunds, promotions, reporting docs/prompts | Released |
 | v1.8.0 | Mobile App Pack | Mobile product scope, UX/navigation, offline sync, device permissions, push notifications, mobile security/privacy, app-store release, mobile QA docs/prompts | Released |
 | v1.9.0 | Medium SaaS App Reference Example | Completed documentation reference for Team Subscription Manager, a fictional B2B SaaS product demonstrating multitenancy, Supabase concepts, financial placeholders, print/reporting, and RTL/i18n readiness | Released |
+| v2.0.0 | Complex ERP App Reference Example | Completed documentation reference for Integrated Operations ERP, a fictional complex multi-module ERP operations product demonstrating ERP Operations, Financial, Print/Reporting, Supabase, RTL/i18n, and Mobile App concepts where relevant | Released |
 
 ---
 
@@ -51,6 +53,9 @@ The completed examples are:
 * [examples/medium-saas-app/](examples/medium-saas-app/) (Team Subscription Manager)
   * Completed documentation reference, not runnable application source code.
   * See the [examples/medium-saas-app/README.md](examples/medium-saas-app/README.md) for details.
+* [examples/complex-erp-app/](examples/complex-erp-app/) (Integrated Operations ERP)
+  * Completed documentation reference, not runnable application source code.
+  * See the [examples/complex-erp-app/README.md](examples/complex-erp-app/README.md) for details.
 
 ### Implemented Extension Packs
 
@@ -65,7 +70,7 @@ The completed examples are:
 
 ### Placeholder / Future Examples
 
-* [complex-erp-app](examples/complex-erp-app/README.md)
+* None at this stage.
 
 ### Placeholder / Future Extension Packs
 
@@ -93,10 +98,10 @@ The completed examples are:
 * **Core Factory:** Production-ready as documentation/template kit.
 * **Extension framework:** Established.
 * **Implemented packs:** 8
-* **Completed documentation reference examples:** 2
-* **Placeholder examples:** 1
+* **Completed documentation reference examples:** 3
+* **Placeholder examples:** 0
 * **Runtime application code:** not included by design
-* **Medium SaaS example:** completed and released as v1.9.0
+* **Complex ERP example:** completed and released as v2.0.0
 * **Extension pack set:** complete for the currently planned v1.x extension roadmap
 * **Security/secrets:** No credentials or private project data intended.
 
@@ -119,9 +124,7 @@ The completed examples are:
 
 ## 7. Recommended Next Roadmap
 
-| Target Version | Proposed Work           | Reason                                                                                                                                                           |
-| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| v2.0.0         | complex-erp-app example | Demonstrates operational/ERP documentation in practice using ERP Operations, Financial, Print Reporting, Supabase, RTL/i18n, and Mobile App packs where relevant |
+* **Roadmap Complete:** All planned extension packs and documentation reference examples (Simple, Medium, Complex) have been successfully completed and released. No further core components are planned.
 
 ---
 
@@ -141,7 +144,7 @@ The completed examples are:
 
 * **Working tree status:** Clean (`git status --short` is empty).
 * **Branch status:** `main` is up to date with remote `origin/main`.
-* **Latest tag:** `v1.9.0`
+* **Latest tag:** `v2.0.0`
 * **All tagged versions:**
   * `v1.0.0`
   * `v1.1.0`
@@ -153,5 +156,6 @@ The completed examples are:
   * `v1.7.0`
   * `v1.8.0`
   * `v1.9.0`
-* **Latest release tag commit:** `a699e381e4e8e58b9e9f355d8e38c5a6476321e0` (`docs: fix medium saas decision log link`)
-* **Latest repository status commit:** `a699e381e4e8e58b9e9f355d8e38c5a6476321e0` (`docs: fix medium saas decision log link`)
+  * `v2.0.0`
+* **Latest release tag commit:** `13334ce444cfcc6edd3a4b2f27d1f335b122f77e` (`docs(examples): add complex-erp-app completed documentation reference`)
+* **Latest repository status commit:** `13334ce444cfcc6edd3a4b2f27d1f335b122f77e` (`docs(examples): add complex-erp-app completed documentation reference`)
