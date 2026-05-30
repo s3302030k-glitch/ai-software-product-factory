@@ -280,6 +280,19 @@ Before authorizing any coding agent to write a single line of code, confirm all 
 
 ---
 
+## About Example Documentation Numbering
+
+The reference examples in `examples/` follow the core template structure but may adapt it to their product's complexity. This means:
+
+- Some examples rename or repurpose a core doc slot (e.g., `02-target-users.md` instead of `02-discovery.md`, or `16-bug-report-template.md` instead of `16-context-snapshot.md`).
+- Some examples add numbered extension notes beyond the core 18 files (e.g., `18-saas-multitenant-notes.md`, `19-supabase-notes.md`).
+- The core templates in `core/docs/` are the base system and define the standard filenames.
+- Example-specific docs demonstrate how to adapt and extend the template set for a particular product's needs.
+
+**Do not assume every example has identical doc numbering to `core/docs/`.** When in doubt, read the example's own `README.md`, the example's `00-document-priority.md`, and the [README.md](README.md) at the repository root for orientation.
+
+---
+
 ## Final Notes
 
 - This kit is complete through **v2.0.0**: Core Factory + 8 extension packs + 3 completed reference examples.

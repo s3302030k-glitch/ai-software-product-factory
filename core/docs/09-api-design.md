@@ -68,6 +68,37 @@ Provide a complete API reference that frontend developers, backend developers, a
 
 ---
 
+## API Style Adaptation Note
+
+> [!NOTE]
+> This template uses REST conventions by default (HTTP methods, URL paths, JSON response envelopes, HTTP status codes). It can be adapted for other API styles without changing the factory workflow.
+
+**Supported adaptations:**
+
+| API Style | How to Adapt This Template |
+|-----------|---------------------------|
+| **REST** | Use the template as-is. Default conventions apply. |
+| **GraphQL** | Replace HTTP method/path with operation name and type (`query`, `mutation`, `subscription`). Document the schema type, resolver inputs, and return type instead of request/response envelopes. |
+| **gRPC** | Replace endpoints with service/method names. Document proto message input and output shapes, error codes (gRPC status), and streaming behavior instead of HTTP status codes. |
+| **Supabase RPC** | Document as a named function call (`rpc('function_name', params)`). Specify params, return type, RLS context, and error cases. |
+| **Next.js / Framework Server Actions** | Document the action name, its input contract, output contract, and any authorization or validation rules enforced server-side. |
+| **Event-Driven / Message Queue** | Document the event name, producer, consumer, payload schema, ordering guarantees, idempotency behavior, and failure handling. |
+
+**Regardless of API style, always document:**
+
+- **Operation name** — what the operation is called
+- **Input contract** — what data it accepts and validation rules
+- **Output contract** — what it returns on success and on each error
+- **Authorization** — who is allowed to call it and under what conditions
+- **Validation rules** — field-level constraints and error codes
+- **Error cases** — all known failure modes and their responses
+- **Idempotency** — whether repeated calls with the same inputs are safe
+
+> [!IMPORTANT]
+> Do not implement API logic in this document. This is a conceptual documentation template. All entries are specifications only.
+
+---
+
 ## Endpoint Template
 
 _Copy this template for each endpoint._
