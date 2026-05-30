@@ -45,7 +45,7 @@ The factory is organized into four main areas:
 To guide your reference, here is the implementation status of folders in this repository:
 
 - **[examples/small-crud-app](examples/small-crud-app/README.md) (Invoice Tracker):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and a mock batch sequence.
-- **[examples/medium-saas-app](examples/medium-saas-app/README.md):** **Placeholder / Planned**. Will demonstrate multi-tenant SaaS architectures in a future update.
+- **[examples/medium-saas-app](examples/medium-saas-app/README.md) (Team Subscription Manager):** **Completed & Fully Filled Documentation Reference**. Contains fully populated templates and AI agent prompts.
 - **[examples/complex-erp-app](examples/complex-erp-app/README.md):** **Placeholder / Planned**. Will demonstrate complex ERP, workflows, and cross-module synchronization.
 - **Implemented Extension Packs:**
   - **[supabase-pack](extensions/supabase-pack/README.md)**

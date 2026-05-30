@@ -2,10 +2,14 @@
 
 ## 1. Current Release Summary
 
-* **Current latest release:** v1.8.0
+* **Current latest release:** v1.9.0
 * **Repository status:** public/template-ready
 * **Main purpose:** reusable AI-assisted software product factory kit
-* **Current maturity:** Core Factory + 8 implemented extension packs
+* **Current maturity:** Core Factory + 8 implemented extension packs + 2 completed documentation reference examples
+
+The completed examples are:
+* small-crud-app
+* medium-saas-app
 
 ---
 
@@ -22,6 +26,7 @@
 | v1.6.0 | SaaS Multitenant Pack | SaaS organizations, tenants, memberships, permissions, subscriptions, billing boundary, tenant isolation docs/prompts | Released |
 | v1.7.0 | Ecommerce Pack | Ecommerce catalog, product/SKU/variant, cart, checkout, orders, payments, refunds, promotions, reporting docs/prompts | Released |
 | v1.8.0 | Mobile App Pack | Mobile product scope, UX/navigation, offline sync, device permissions, push notifications, mobile security/privacy, app-store release, mobile QA docs/prompts | Released |
+| v1.9.0 | Medium SaaS App Reference Example | Completed documentation reference for Team Subscription Manager, a fictional B2B SaaS product demonstrating multitenancy, Supabase concepts, financial placeholders, print/reporting, and RTL/i18n readiness | Released |
 
 ---
 
@@ -38,11 +43,14 @@
 * QA/review/report formats
 * [START_HERE.md](START_HERE.md)
 
-### Completed Example
+### Completed Examples
 
 * [examples/small-crud-app/](examples/small-crud-app/) (Invoice Tracker)
   * Completed documentation reference, not runnable application source code.
   * See the [examples/small-crud-app/README.md](examples/small-crud-app/README.md) for details.
+* [examples/medium-saas-app/](examples/medium-saas-app/) (Team Subscription Manager)
+  * Completed documentation reference, not runnable application source code.
+  * See the [examples/medium-saas-app/README.md](examples/medium-saas-app/README.md) for details.
 
 ### Implemented Extension Packs
 
@@ -57,7 +65,6 @@
 
 ### Placeholder / Future Examples
 
-* [medium-saas-app](examples/medium-saas-app/README.md)
 * [complex-erp-app](examples/complex-erp-app/README.md)
 
 ### Placeholder / Future Extension Packs
@@ -86,8 +93,10 @@
 * **Core Factory:** Production-ready as documentation/template kit.
 * **Extension framework:** Established.
 * **Implemented packs:** 8
-* **Examples:** 1 completed documentation reference, 2 placeholders
+* **Completed documentation reference examples:** 2
+* **Placeholder examples:** 1
 * **Runtime application code:** not included by design
+* **Medium SaaS example:** completed and released as v1.9.0
 * **Extension pack set:** complete for the currently planned v1.x extension roadmap
 * **Security/secrets:** No credentials or private project data intended.
 
@@ -110,10 +119,9 @@
 
 ## 7. Recommended Next Roadmap
 
-| Target Version | Proposed Work           | Reason                                                                        |
-| -------------- | ----------------------- | ----------------------------------------------------------------------------- |
-| v1.9.0 | medium-saas-app example | Demonstrates multi-role SaaS documentation in practice using Supabase, SaaS Multitenant, Financial, Print Reporting, Ecommerce, and Mobile App packs where relevant |
-| v2.0.0 | complex-erp-app example | Demonstrates operational/ERP documentation in practice using ERP Operations, Financial, Print Reporting, Supabase, RTL/i18n, and Mobile App packs where relevant    |
+| Target Version | Proposed Work           | Reason                                                                                                                                                           |
+| -------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v2.0.0         | complex-erp-app example | Demonstrates operational/ERP documentation in practice using ERP Operations, Financial, Print Reporting, Supabase, RTL/i18n, and Mobile App packs where relevant |
 
 ---
 
@@ -133,7 +141,7 @@
 
 * **Working tree status:** Clean (`git status --short` is empty).
 * **Branch status:** `main` is up to date with remote `origin/main`.
-* **Latest tag:** `v1.8.0`
+* **Latest tag:** `v1.9.0`
 * **All tagged versions:**
   * `v1.0.0`
   * `v1.1.0`
@@ -144,5 +152,6 @@
   * `v1.6.0`
   * `v1.7.0`
   * `v1.8.0`
-* **Latest release tag commit:** `7a3483f6e1948397c0fc7600ad8e003a4228cd61` (`docs: implement mobile app extension pack`)
-* **Latest repository status commit:** `1a2a213` (`docs: update factory status for v1.8.0`)
+  * `v1.9.0`
+* **Latest release tag commit:** `a699e381e4e8e58b9e9f355d8e38c5a6476321e0` (`docs: fix medium saas decision log link`)
+* **Latest repository status commit:** `a699e381e4e8e58b9e9f355d8e38c5a6476321e0` (`docs: fix medium saas decision log link`)
